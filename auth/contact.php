@@ -188,23 +188,23 @@ if(isset($_POST['contact'])){
                 <div class="alert <?php echo $errMsgClass; ?>"><?php echo $errMsg; ?></div>
 
                     <p>
-                        <label>Name</label>
+                        <label class="mx-3">Name</label>
                         <input type="text" name="name" id="name" placeholder="Enter your full name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ''; ?>">
                     </p>
                     <p>
-                        <label>Company</label>
+                        <label class="mx-3">Company</label>
                         <input type="search" name="company" id="company" placeholder="Enter your company Name if Any" value="<?php echo isset($_POST['company']) ? $_POST['company'] : ''; ?>">
                     </p>
                     <p>
-                        <label>Email Address</label>
+                        <label class="mx-3">Email Address</label>
                         <input type="email" name="email" id="email" placeholder="Enter your Email Address" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>">
                     </p>
                     <p>
-                        <label>Phone Number</label>
+                        <label class="mx-3">Phone Number</label>
                         <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : ''; ?>">
                     </p>
                     <p class="full">
-                        <label>Message</label>
+                        <label class="mx-3">Message</label>
                         <textarea name="message" rows="5" id="message" placeholder="Add a comment..."><?php echo isset($_POST['message']) ? $_POST['message'] : ''; ?></textarea>
                     </p>
                     <p class="full">
@@ -217,6 +217,7 @@ if(isset($_POST['contact'])){
 
 
     <!---------------------- Footer template ---------------------->
+    
     <footer  style="background: #1e1e26; display: flex; justify-content: center">
         <div class="container p-4 d-lg-flex justify-content-between text-white">
             <span class='my-5'>
@@ -226,19 +227,13 @@ if(isset($_POST['contact'])){
                     </div>
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>
-                <div class="d-flex social-icons m-4">
-                    <!-- <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-facebook fa-1x'></i>
-                    </a> -->
+                <div class="d-flex social-icons my-4">
                     <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-instagram fa-2x mx-4'></i>
+                        <i class='fab fa-instagram fa-2x'></i>
                     </a>
-                    <!-- <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-twitter fa-1x'></i>
-                    </a> -->
                 </div>
             </span>
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+            <ul class="list-unstyled my-5 d-lg-flex">
                 <li class='my-2'>
                     <a href='./index.php' class='nav-link text-white'>Home</a>
                 </li>
@@ -253,7 +248,7 @@ if(isset($_POST['contact'])){
                 </li>
             </ul>
     
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+            <ul class="list-unstyled my-5">
                 <li><a href='#' class='nav-link text-white'>Privacy policy</a></li>
                 <li><a href='#' class='nav-link text-white'>Help</a></li>
             </ul>

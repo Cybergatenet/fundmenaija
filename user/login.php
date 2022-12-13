@@ -99,6 +99,8 @@ if (isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/login.css">
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <!-- Extra CSS for external module -->
     <style>
         .swal-button {
@@ -149,6 +151,10 @@ if (isset($_SESSION['username'])) {
                                     <label for="password" class="sr-only">Password</label>
                                     <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
                                 </div>
+                                <div class="my-3">
+                                    <div class="g-recaptcha" data-sitekey="6Ldm7HcjAAAAAC-k9g6fBmge6H8h8uOSFeEI3POO"></div>
+                                </div>
+
                                 <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
                             </form>
                             <a href="./forgotPassword.php" class="forgot-password-link">Forgot password?</a>

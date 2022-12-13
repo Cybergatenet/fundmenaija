@@ -13,10 +13,12 @@ window.addEventListener('scroll', () => {
 
   if (window.scrollY > 8) {
     logo.classList.add('scrollColor')
+    hamburgerMenuIcon.classList.add('scrollColor')
     singleElementSelector('header').classList.add('scroll')
     
   }else{
     logo.classList.remove('scrollColor')
+    hamburgerMenuIcon.classList.remove('scrollColor')
     singleElementSelector('header').classList.remove('scroll')
   }
       
@@ -31,12 +33,12 @@ const hamburger = () => {
 
   if (x.style.display === 'block') {
     x.style.display = 'none'; 
-    hamburgerMenuIcon.setAttribute('class', 'fa fa-bars text-times text-white fa-2x')
+    hamburgerMenuIcon.setAttribute('class', 'fa fa-bars text-times fa-2x')
     
     
   }else{
     x.style.display = 'block';
-    hamburgerMenuIcon.setAttribute('class', 'fa fa-times text-times text-white fa-2x')
+    hamburgerMenuIcon.setAttribute('class', 'fa fa-times text-times fa-2x')
   }
 }
     
@@ -47,11 +49,10 @@ const change_link_color = (arrayOfLinks) => {
    
     if (window.scrollY > 8) {
       link.style.color = 'black'
-      hamburgerMenuIcon.classList.add('scrollColor')
+      
       
     }else{
       link.style.color = 'white'
-      hamburgerMenuIcon.classList.remove('scrollColor')
     }
   });
 }
@@ -76,28 +77,26 @@ hiddenElements.forEach(ele => Observer.observe(ele))
 
 
 //*********** Donation Page Read functionality ***********
-let clicked = 'false';
-const see_details = (id) => {
-  
-  if (clicked == 'false') {
-    clicked = 'false'
-    writeUp.forEach(post => {
-      if (post.id == id) {
-        clicked = 'true'
-        post.setAttribute('class', 'write-up my-4')
+let counter = 0;
+let hide = 'text-truncate';
+multiElementSelector('.write-up').forEach(post => {post.classList.add(hide)})
+
+multiElementSelector('.detailsBtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    counter ++
+    multiElementSelector('.write-up').forEach(ele => {
+
+      if (ele.id == btn.id && counter == 1) {
+        ele.classList.remove(hide)
+        
+      }else if (ele.id == btn.id && counter > 1) {
+        ele.classList.add(hide)
+        counter  = 0
       }
     })
-    
-  }else{
-    writeUp.forEach(post => {
-      if (post.id == id) {
-        post.setAttribute('class', 'write-up my-4 text-truncate')
-        clicked = 'false'
-      }
-    })
-  }
-  
-}
+  })
+})
+
 
 
 // Effects

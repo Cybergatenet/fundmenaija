@@ -191,13 +191,14 @@
                     </button>
                     <!-- Fetch Id from DB --->
 
+               
                     <div class="display-6" style="font-weight: 400">
                         <?php echo substr($post['issue_title'], 0, 100); ?>...
                     </div>
 
                     <div class='col-md-9'>
-                        <p class='write-up my-4 text-truncate'><?php echo $post['issue_body']; ?></p>
-                        <p class='hover cursor' onclick="see_details(<?php echo $post['id']; ?>)"><b class="detailsBtn" id='<?php echo $post['id']; ?>'>Read</b></p>
+                        <p class='write-up my-4 text-truncate1' id='<?php echo $post['id']; ?>'><?php echo $post['issue_body']; ?></p>
+                        <p class='hover cursor'><b class="detailsBtn" id='<?php echo $post['id']; ?>'>Read</b></p>
                     </div>
 
                     <div class="d-lg-flex">
@@ -228,33 +229,27 @@
 
     <a href="#" 
         class="back-to-top nav-link rounded-circle d-flex align-items-center justify-content-center h3" 
-        title="Back-To-Top"><i class="fa fa-angle-up"></i></a>
-    <div id="preloader"></div>
+        title="Back-To-Top"><i class="fa fa-angle-up"></i>
+    </a>
            
     
     <!---------------------- Footer template ---------------------->
     <footer  style="background: #1e1e26; display: flex; justify-content: center">
-        <div class="container p-4 d-lg-flex justify-content-between text-white">
-            <span class='my-5'>
-                <div class="d-flex align-items-center">
+        <div class="container px-4 d-lg-flex justify-content-between align-items-baseline text-white">
+            <span>
+                <div class="d-flex align-items-center my-lg-0 my-5">
                     <div style="width: 70px; height: 50px; position: relative;">
                         <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                     </div>
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>
-                <div class="d-flex social-icons m-4">
-                    <!-- <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-facebook fa-1x'></i>
-                    </a> -->
+                <div class="d-flex social-icons my-4">
                     <a href='<?php echo INSTAGRAM; ?>' class='nav-link text-white'>
-                        <i class='fab fa-instagram fa-2x mx-4'></i>
+                        <i class='fab fa-instagram fa-2x'></i>
                     </a>
-                    <!-- <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-twitter fa-1x'></i>
-                    </a> -->
                 </div>
             </span>
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+            <ul class="list-unstyled my-5 d-lg-flex">
                 <li class='my-2'>
                     <a href='../index.php' class='nav-link text-white'>Home</a>
                 </li>
@@ -269,7 +264,7 @@
                 </li>
             </ul>
     
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+            <ul class="list-unstyled my-5">
                 <li><a href='#' class='nav-link text-white'>Privacy policy</a></li>
                 <li><a href='#' class='nav-link text-white'>Help</a></li>
             </ul>

@@ -10,6 +10,7 @@
 
   /* Dark mode Elements */
   --Very-Dark-green: #15242b;
+  /* --Very-Dark-green: #3f6883; */
   --Card-color: #1e1e26;
 
   --Orange: #f3613c;
@@ -126,11 +127,6 @@ header .mobile, .hambuger {
   opacity: 0.3;
 }
 
-.Banner p{
-  font-size: 2em;
-  font-weight: 100;
-}
-
 
 
 /************* Button component styling *************/
@@ -155,6 +151,7 @@ button:hover{
   url('../img/Donate_img.jpeg') no-repeat;
   background-size: cover;
   background-position: center;
+  /* background: #f1f5f8 !important; */
 }
 
 .layer{
@@ -184,14 +181,14 @@ button:hover{
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-    color: #e9e9f2;
 }
 
 .contentTwo .card-container .main-card {
-  background: rgba(0, 0, 0, 0.5) !important;
+  background: hwb(0 23% 76% / 0.5) !important;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.8s;
+  color: #f1f5f8;
 }
 
 .contentTwo .card-container .main-card:hover {
@@ -202,14 +199,22 @@ button:hover{
 
 /************ Content four styling  ************/
 .Content-four{
-  background: var(--Very-Dark-green);
   margin-top: 2em;
+  background: var(--Very-Dark-green);
 }
 
 .Content-four .card{
   flex: 1;
-  background: var(--Card-color);
+  cursor: pointer;
+  color: #f1f5f8;
+  background: var(--Orange);
+  border: none !important;
 }
+
+.Content-four .card:hover{
+  background: rgba(25, 40, 46, 0.899);
+}
+
 
   
 
@@ -275,7 +280,9 @@ opacity: 0;
 right: 15px;
 bottom: 15px;
 z-index: 996;
-background: #5846f9;
+/* background: #5846f9; */
+background: var(--Very-Dark-green);
+border: 1px solid #999;
 width: 40px;
 height: 40px;
 border-radius: 4px;
@@ -289,7 +296,7 @@ line-height: 0;
 }
 
 .back-to-top:hover {
-background: #7b27d8;
+background: var(--Orange);
 color: #fff;
 }
 
@@ -355,7 +362,9 @@ opacity: 1;
   
   
   
-  
+  header .mobile .d-flex{
+    display: none !important;
+  }
   @media(max-width: 772px) { /*** Mobile screen styling  ***/
     /***** Navbar moblie styling  ****/
     .logo-container .logo-img {
@@ -387,7 +396,7 @@ opacity: 1;
       left: 0;
       padding: 3em;
       background-color: #15242b;
-      top: 4.5em;
+      top: 5em;
       z-index: 999;
     }
   

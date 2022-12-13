@@ -1,0 +1,64 @@
+// MessageController.php
+
+/**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+public function store(Request $request)
+{
+    // validate all form fields are filled
+    $request->validate([
+    'name'=> 'required',      
+    'email' => 'required|email',
+    'body' => 'required'
+    ]);
+
+    
+    // check if reCaptcha has been validated by Google      
+    $secret = env('GOOGLE_RECAPTCHA_SECRET');
+    $captchaId = $request->input('g-recaptcha-response');
+    
+    //sends post request to the URL and tranforms response to JSON
+    $responseCaptcha = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$captchaId));
+    
+
+    if($responseCaptcha->success == true){
+    
+    // store the message in database
+    $message =  new Message;
+    $message->name = $request->name;
+    $message->email = $request->email;
+    $message->body = $request->body;
+
+    $message->save();
+
+    // prepare notification
+    $request->session()->flash('message-for', 'message');                
+    $request->session()->flash('message-level', 'alert-success' );
+    $request->session()->flash('message-content', 'Thanks for your message ' . $request->name . '. I will reply to you shortly');
+
+    return back();
+
+    }else{
+    // send back error message
+    $request->session()->flash('message-for', 'message');                
+    $request->session()->flash('message-level', 'alert-warning' );
+    $request->session()->flash('message-content', 'Looks like you are a replicant. Sorry but I do not receive emails from non human entities :(');
+    
+    
+
+    return back();
+    }
+    
+}
+
+
+
+
+
+
+<!-- site key: 6Ldm7HcjAAAAAC-k9g6fBmge6H8h8uOSFeEI3POO -->
+
+<!-- secrete key: 6Ldm7HcjAAAAAOpdUyHJjTjol2eN-rod5eoI40ra -->

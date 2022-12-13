@@ -50,6 +50,8 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 10px;
 }
 .slider .card .content {
   padding: 10px 20px;
@@ -79,8 +81,9 @@
   /* padding: 10px; */
   font-weight: 500;
 }
-.card .content .btn button {
-  background-color: #e74c3c;
+.card .content .btn {
+  /* background-color: #e74c3c; */
+  background-color: #f3613c;
   color: #fff;
   border: none;
   outline: none;
@@ -180,6 +183,12 @@ img{
 	max-width: 100%;
 	/* min-width: 100%; */
 }
+
+#services{
+	width: 100%;
+	overflow-x: hidden;
+}
+
 .services{
 	background-color: #111;
 	background-color: transparent;
