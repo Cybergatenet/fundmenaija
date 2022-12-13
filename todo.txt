@@ -57,10 +57,28 @@ NEW_ISSUES
 #55 ALTER TABLE `_issues` CHANGE `issue_time` `issue_time` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT CURRENT_TIMESTAMP;
 #56 Edit Email templete
 #57 Send Email to the 3 parties on payment from paystack
+#58 clean up the console
+#59 Hamburger Menu
 
 
 
 ADVANCE FEATURES
-#57 icon of fund Raiser and <title>:hover display their target and/or note(description)
+#000 icon of fund Raiser and <title>:hover display their target and/or note(description)
 #001 Hot-link to Share to people for donations
 #002 (Add) => Testimonies from people that compoleted their Fund target
+#003 https://phprouter.com/ (routing custom pages)
+
+
+Reminder: 
+$mail->SMTPSecure = PHPMAILER::ENCRYPTION_SMTPS;
+$mail->Port = 465;
+
+<form id="contactform" action="https://formsubmit.io/send/put your email here" method="POST">
+    <input name="name" type="text" id="name">
+    <input name="email" type="email" id="email">
+    <textarea name="comment" id="comment" rows="3"></textarea>
+
+    <input name="_formsubmit_id" type="text" style="display:none">
+
+    <input value="Submit" type="submit">
+</form>

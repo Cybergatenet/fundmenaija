@@ -183,6 +183,7 @@ img{
 .services{
 	background-color: #111;
 	background-color: transparent;
+    overflow: hidden;
 }
 .heading.white{
 	color: #fff;
@@ -394,6 +395,10 @@ img{
 	section{
 		padding: 100px 50px;
 	}
+	/* .services{
+		width: 100%;
+    	overflow: hidden;
+	} */
 	.banner{
 		padding: 150px 50px 100px;
 	}

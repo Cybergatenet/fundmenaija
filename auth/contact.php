@@ -88,7 +88,7 @@ if(isset($_POST['contact'])){
       content="FundMeNaija website"
     />
       <!-- Favicons -->
-      <link href="./assets/img/favicon-32x32.png" rel="icon">
+    <link href="./assets/img/favicon-32x32.png" rel="icon">
     <link href="./assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
 
     <title>FundMeNaija | Home</title>
