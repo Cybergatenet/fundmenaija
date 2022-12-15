@@ -3,6 +3,8 @@ const multiElementSelector = element => document.querySelectorAll(element) // Ht
 
 const logo = singleElementSelector('.logo') 
 const hamburgerMenuIcon = singleElementSelector('.menuIcon')
+const faTimes = singleElementSelector('.fa-times')
+const faBars = singleElementSelector('.fa-bars')
 
 const links = multiElementSelector('#nav-link') 
 const writeUp = multiElementSelector('.write-up')  
@@ -13,12 +15,14 @@ window.addEventListener('scroll', () => {
 
   if (window.scrollY > 8) {
     logo.classList.add('scrollColor')
-    hamburgerMenuIcon.classList.add('scrollColor')
+    faBars.classList.add('scrollColor')
+    faTimes.classList.add('scrollColor')
     singleElementSelector('header').classList.add('scroll')
     
   }else{
     logo.classList.remove('scrollColor')
-    hamburgerMenuIcon.classList.remove('scrollColor')
+    faBars.classList.remove('scrollColor')
+    faTimes.classList.remove('scrollColor')
     singleElementSelector('header').classList.remove('scroll')
   }
       
@@ -33,12 +37,14 @@ const hamburger = () => {
 
   if (x.style.display === 'block') {
     x.style.display = 'none'; 
-    hamburgerMenuIcon.setAttribute('class', 'fa fa-bars text-times fa-2x')
+    faTimes.classList.add('hideMenu')
+    faBars.classList.remove('hideMenu')
     
     
   }else{
     x.style.display = 'block';
-    hamburgerMenuIcon.setAttribute('class', 'fa fa-times text-times fa-2x')
+    faTimes.classList.remove('hideMenu')
+    faBars.classList.add('hideMenu')
   }
 }
     

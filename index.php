@@ -134,6 +134,7 @@
             <!-- ----------------- Hamburger menu ----------------- -->
             <div class='hambuger' onClick="hamburger()">
                 <i class='menuIcon fa fa-bars text-white fa-2x'></i>
+                <i class='menuIcon fa fa-times text-white fa-2x hideMenu'></i>
             </div>
         </div>
     </header>
@@ -142,8 +143,8 @@
     <section class='Banner py-5'>
         <div class="container py-5 px-lg-5 my-4 px-3">
             <main class='col-md-12 text-center py-lg-0 py-4'>  
-                <h1 class='display-5' style="color: #fff; opacity: 1; font-weight: 700"><span style="color: #f3613c">FUND AND </span> GET FUNDED</h1>
-                <p class='text-white' style="font-size: 1.5em">Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
+                <h1 class='display-4' style="color: #fff; opacity: 1; font-weight: 700"><span style="color: #f3613c">FUND AND </span> GET FUNDED</h1>
+                <p class='text-white' style="font-size: 1.8em">Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
 
                 <button class="btn font-weight-bold text-white my-3 py-3 px-5" onclick="window.location.href = './user/login.php'">Get started</button>
             </main>
@@ -225,14 +226,14 @@
 
     <!--------------------- Section three --------------------->
     <section>
-        <div class="container">
+        <div class="container my-0">
             <div class="row align-items-baseline">
                 <section class="col-md-6 align-items-center p-0">
-                    <div class="px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
+                    <div class="px-lg-5 px-4 pb-30 mb-1" style="transition: 0.5s">
                         <div class="my-5 hidden" style="transition: 0.3s !important">
                             <div class="d-flex align-items-center">
-                                <div class="d-lg-block d-none" style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">01</div>
-                                    <h4 class="mx-lg-3">About Fundmenaija</h4>
+                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">01</div>
+                                    <h5 class="mx-3">About Fundmenaija</h5>
                                 </div>
                                 <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
                         </div>    
@@ -240,20 +241,20 @@
                     <div class="px-lg-5 px-4" style="transition: 0.4s">
                         <div class="mb-lg-5 hidden" style="transition: 0.5s !important">
                             <div class="d-flex align-items-center">
-                                <div class="d-lg-block d-none" style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">02</div>
-                                <h4 class="mx-lg-3">Why you should Choose Fundmenaija</h4>
+                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">02</div>
+                                <h5 class="mx-3">Why you should Choose Fundmenaija</h5>
                             </div>
                             <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
                         </div>
                     </div>
                 </section>
 
-                <section class="col-md-6 px-3" style="transition: 0.5s">
+                <section class="col-md-6 px-3 py-3" style="transition: 0.5s">
                     <div class="px-lg-5 px-1" style="transition: 0.7s">
                         <div class="my-3 hidden" style="transition: 0.7s !important">
                             <div class="d-flex align-items-center">
-                                <div class="d-lg-block d-none" style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">03</div>
-                                <h4 class="mx-lg-3">How Fundmenaija works</h4>
+                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">03</div>
+                                <h5 class="mx-3">How Fundmenaija works</h5>
                             </div>
                             <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
                         </div>
@@ -294,7 +295,7 @@
                 <p>Donate Fund to your Favourite Raisers</p>
             </div>
             <div class="content">
-                <div class="slider owl-carousel shadow p-lg-4">
+                <div class="slider owl-carousel shadow-md-sm p-lg-4">
                     <?php foreach($posts as $post): ?>
                     <div class="card shadow-sm" style="min-height: 420px; max-height: 420px; height: 420px; border: 0px; border-radius: 10px">
                         <div class="img">

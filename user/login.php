@@ -115,17 +115,28 @@ if (isset($_SESSION['username'])) {
             opacity: 0.8;
             background-color: transparent;
         }
+
+        .pointer{
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
     <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div class="container">
             <div class="card login-card shadow p-0 col-md-9 mx-auto">
+                
                 <div class="row no-gutters">
+                    
                     <div class="col-md-6">
                         <img src="../assets/img/PageImage/loginImage.jpg" alt="login" class="login-card-img">
                     </div>
                     <div class="col-md-6">
+                        <a href="../index.php" class="nav-link text-dark d-flex align-items-center my-4 px-5">
+                            <i class="fa fa-angle-left fa-2x pointer"></i>
+                            <p class="my-2 mx-2 pointer">Back</p>
+                        </a>
                         <div class="card-body">
                             <div class="brand-wrapper">
                                 <img src="../assets/img/Logo3.png" alt="logo" class="logo">

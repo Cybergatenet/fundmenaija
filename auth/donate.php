@@ -166,51 +166,71 @@
 // code to return Images 
             ?>
 
-            <section class="Fundraiser p-4 bg-white my-4">
-                <div class='d-flex align-items-center mx-lg-4'>
-                    <div class='fundraiser-img'>  
-                        <picture>
-                            <img src="../user/<?php echo $customer['C_Pan_Doc'];?>" alt="profile image" 
-                                class="img-fluid mx-lg-0 p-1 border" 
-                            />
-                        </picture>
-                    </div>
+            <section class="Fundraiser p-4 bg-white my-4 shadow">
+                <div class="row justify-content-between">
 
-                    <div class="col-md-8 mx-lg-4 mt-lg-0 mt-3" id='<?php echo "donation".$post["id"]; ?>'>
-                        <div class="fundraiser-name col-md-12">
-                            <b class='text-capitalize'><?php echo $post['user_username']; ?></b>
-                            <p class='address text-capitalize'><?php echo date($post['issue_time']); ?></span></p>
+                    <div class='col-md-6 d-flex justify-content-center1 align-items-center'>
+                        <div class='fundraiser-img'>  
+                            <picture>
+                                <img src="../user/<?php echo $customer['C_Pan_Doc'];?>" alt="profile image" 
+                                    class="img-fluid mx-lg-0 mx-auto" 
+                                />
+                            </picture>
+                        </div>
+    
+                        <div class="mx-lg-4 mt-lg-0 mt-3 mx-3" id='<?php echo "donation".$post["id"]; ?>'>
+                            <div class="fundraiser-name col-md-12">
+                                <b class='text-capitalize'><?php echo $post['user_username']; ?></b>
+                                <!------------- Title ----------- -->
+                                <div class="h5 my-2" style="font-weight: 500">
+                                    <?php echo substr($post['issue_title'], 0, 100); ?>...
+                                </div>
+                                <p class='address text-capitalize'><?php echo date($post['issue_time']); ?></span></p>
+                            </div>
+    
                         </div>
                     </div>
-                </div>
-                
-                <section class="mx-lg-4">
-                    <!-- A pop Up ### to do -->
-                    <button class='py-1 px-5 my-4 hover' style='background: #f3613c;'>
-                        <a href="./pay.php?user_id=<?php echo $post['user_id']; ?>&issue_id=<?php echo $post['id']; ?>" class='nav-link text-white' id="1">Donate Fund</a> 
-                    </button>
-                    <!-- Fetch Id from DB --->
 
-               
-                    <div class="display-6" style="font-weight: 400">
-                        <?php echo substr($post['issue_title'], 0, 100); ?>...
-                    </div>
-
-                    <div class='col-md-9'>
-                        <p class='write-up my-4 text-truncate1' id='<?php echo $post['id']; ?>'><?php echo $post['issue_body']; ?></p>
-                        <p class='hover cursor'><b class="detailsBtn" id='<?php echo $post['id']; ?>'>Read</b></p>
-                    </div>
-
-                    <div class="d-lg-flex">
-                        <div class='event-img my-2 hidden' style="transition: 0.5s">
+                    <!----------------- Issues image --------------- -->
+                    <div class="col-md-6 d-flex">
+                        <div class='event-img my-2 hidden mx-auto' style="transition: 0.5s">
                             <img src="../user/customer_data/Issue_img/<?php echo $post['avatar'];?>" alt="issue_image" class='img-fluid'/>
                         </div>
 
-                        <div class='event-img my-2 mx-lg-2 hidden' style="transition: 0.8s">
+                        <div class='event-img my-2 mx-lg-2 hidden mx-auto' style="transition: 0.8s">
                             <img src="../user/customer_data/Issue_img/<?php echo $post['avatar'];?>" alt="image" class='img-fluid'/>
                         </div>
                     </div>
-                </section>
+                </div>
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="description">
+                    <!----------- Donate btn --------- -->
+                    <button class='px-3 my-2 hover' style='background: #f3613c;'>
+                        <a href="./pay.php?user_id=<?php echo $post['user_id']; ?>&issue_id=<?php echo $post['id']; ?>" class='nav-link text-white' id="1">Donate Fund</a> 
+                    </button>
+
+                    <!----------- Issues text --------- -->
+                    <p class='write-up my-2' id='<?php echo $post['id']; ?>'><?php echo $post['issue_body']; ?></p>
+                    <p class='hover cursor'><b class="detailsBtn" id='<?php echo $post['id']; ?>'>Read</b></p>
+                </div>
+                
             </section>
 
             <?php   

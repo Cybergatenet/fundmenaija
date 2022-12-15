@@ -353,6 +353,11 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <form class='shadow' id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data" novalidate>
+        <a href="../index.php" class="nav-link text-dark d-flex align-items-center my-4">
+            <i class="fa fa-angle-left fa-2x pointer"></i>
+            <p class="my-2 pointer">Back</p>
+        </a>
+
         <h1 class="mb-3">Create Account</h1>
 
         <!-- Tab 1 -->
