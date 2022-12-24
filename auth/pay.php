@@ -108,7 +108,7 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <header class='shadow-sm'>
+    <header class='shadow-sm bg-white'>
         <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
                     <!--------------------- Logo --------------------->
                     <a href='../index.php' class="logo-container nav-link d-flex align-items-center">
@@ -163,9 +163,10 @@
                         </div>
                     </ul>
 
-                    <!-- ----------------- Hamburger menu ----------------- -->
+                     <!-- ----------------- Hamburger menu ----------------- -->
                     <div class='hambuger' onClick="hamburger()">
                         <i class='menuIcon fa fa-bars text-dark fa-2x'></i>
+                        <i class='menuIcon fa fa-times text-dark fa-2x hideMenu'></i>
                     </div>
                 </div>
             </header>
