@@ -125,22 +125,22 @@ if (isset($_SESSION['username'])) {
 <body>
     <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div class="container">
-            <div class="card login-card shadow p-0 col-md-9 mx-auto">
+            <div class="login-card shadow p-0 col-md-9 mx-auto">
                 
                 <div class="row no-gutters">
                     
                     <div class="col-md-6">
                         <img src="../assets/img/PageImage/loginImage.jpg" alt="login" class="login-card-img">
                     </div>
-                    <div class="col-md-6">
-                        <a href="../index.php" class="nav-link text-dark d-flex align-items-center my-4 px-5">
-                            <i class="fa fa-angle-left fa-2x pointer"></i>
-                            <p class="my-2 mx-2 pointer">Back</p>
-                        </a>
-                        <div class="card-body">
+                    <div class="col-md-6 d-flex flex-column align-items-center">
+                        <div class="">
+                            <a href="../index.php" class="nav-link text-dark d-flex">
+                                <p><<</p>
+                                <p class="mx-2 pointer">Back</p>
+                            </a>
                             <div class="brand-wrapper">
                                 <img src="../assets/img/Logo3.png" alt="logo" class="logo">
-                                <p><?php echo APP_NAME ?></p>
+                                <p style="font-size: 1em; margin-top: 0.5em"><?php echo APP_NAME ?></p>
                             </div>
                             <p class="login-card-description">Sign into your account</p>
 
@@ -168,9 +168,11 @@ if (isset($_SESSION['username'])) {
 
                                 <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
                             </form>
-                            <a href="./forgotPassword.php" class="forgot-password-link">Forgot password?</a>
-                            <p class="login-card-footer-text">Don't have an account? <a href="./createAccount.php" class="text-reset">Register here</a></p>
-                            <nav class="login-card-footer-nav">
+                            <div class="text-center">
+                                <a href="./forgotPassword.php" class="forgot-password-link">Forgot password?</a>
+                                <p class="login-card-footer-text m-0">Don't have an account? <a href="./createAccount.php" class="text-reset">Register here</a></p>
+                            </div>
+                            <nav class="login-card-footer-nav text-center my-2">
                                 <a href="/terms.php">Terms of use</a>
                                 <a href="/privacypolicy.php">Privacy policy</a>
                             </nav>

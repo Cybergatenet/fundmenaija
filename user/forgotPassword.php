@@ -62,19 +62,19 @@ include "../config.php";
 </head>
 
 <body>
-    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <main class="validate d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div class="container">
-            <div class="card login-card">
-                <div class="row no-gutters">
-                    <div id="forgot-img" class="col-md-5">
-                        <img src="../assets/img/PageImage/forgotpass1.svg" alt="login" class="login-card-img">
-                    </div>
-                    <div id="card-start" class="col-md-7">
-                        <div class="card-body">
-                            <div class="brand-wrapper">
+            <div class="bg-white mx-auto login-card col-md-5 py-4 shadow">
+                <div class="row1  d-lg-flex justify-content-center no-gutters1">
+                    <!-- <div id="forgot-img" class="col-md-5">
+                        <img src="../assets/img/PageImage/forgotpass1.svg" alt="login" class="login-card-img1 img-fluid">
+                    </div> -->
+                    <div id="card-start" class="col-md-4s d-flex justify-content-center">
+                        <div>
+                            <!-- <div class="brand-wrapper">
                                 <img src="../assets/img/Logo3.png" alt="logo" class="logo">
                                 <p><?php echo APP_NAME ?></p>
-                            </div>
+                            </div> -->
                             <p class="login-card-description">Validate Your Credential</p>
 
                             <!-- Login Form -->
@@ -91,8 +91,8 @@ include "../config.php";
                                 </div>
                                 <input name="next" id="next" class="btn btn-block login-btn mb-4" type="submit" value="Next >>">
                             </form>
-                            <p class="login-card-footer-text">Go Back To <a href="../index.php" class="text-reset">Home</a></p>
-                            <nav class="login-card-footer-nav">
+                            <div class="login-card-footer-text text-center m-0">Go Back To <a href="../index.php" class="text-reset1">Home</a></div>
+                            <nav class="login-card-footer-nav text-center">
                                 <a href="../pages/terms.php">Terms of use.</a>
                                 <a href="../pages/privacypolicy.php">Privacy policy</a>
                             </nav>

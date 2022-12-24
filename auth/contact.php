@@ -163,9 +163,10 @@ if(isset($_POST['contact'])){
                 </div>
             </ul>
 
-            <!-- ----------------- Hamburger menu ----------------- -->
+             <!-- ----------------- Hamburger menu ----------------- -->
             <div class='hambuger' onClick="hamburger()">
                 <i class='menuIcon fa fa-bars text-dark fa-2x'></i>
+                <i class='menuIcon fa fa-times text-dark fa-2x hideMenu'></i>
             </div>
         </div>
     </header>
