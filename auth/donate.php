@@ -234,18 +234,24 @@
             </section>
 
             <?php   
-                        }
-                    }else{
-                        // return;
-                        $customers[] = array("error"=>"NO User Found");
-                        // echo "NO User Found";
                     }
+                }else{
+                    // return;
+                    $customers[] = array("error"=>"NO User Found");
+                    // echo "NO User Found";
+                }
             ?>
         <?php endforeach; ?>
 
         <!------------ End Fundraiser temp ----------->
-        
+        <!-- pagenation -->
+        <nav class='shadow bg-white d-flex justify-content-between align-items-center px-4 py-3' style="margin-top: 2em">
+            <input type="button" class='btn btn-sm btn-info p-1' value="Prev">
+                <h5>page 1 of 1</h5> 
+            <input type="button" class='btn btn-sm btn-info p-1' value="Next">
+        </nav>
     </div>
+
 
     <a href="#" 
         class="back-to-top nav-link rounded-circle d-flex align-items-center justify-content-center h3" 

@@ -4,7 +4,12 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+require '../mail/phpmailer/PHPMailer/src/Exception.php';
+require '../mail/phpmailer/PHPMailer/src/PHPMailer.php';
+require '../mail/phpmailer/PHPMailer/src/SMTP.php';
+
 require '../vendor/autoload.php';
+include_once('../config.php');
 
     $errMsg = '';
     $errMsgClass = '';
@@ -27,7 +32,7 @@ if(isset($_POST['contact'])){
             $errMsg = "Please use a vaild email";
             $errMsgClass = "alert-danger";
         }else{
-                $toemail = "contact@fundmenaija.com";
+                $toemail = SENDER;
 				$title = "FundMeNaija Contact from ".$name;
 				$body = '<html><body>';
 				$body .= '<h2>Message For FundMeNaija</h2>
@@ -43,16 +48,16 @@ if(isset($_POST['contact'])){
                 $mail->isSMTP();                      
                 $mail->Host       = 'ssl://smtp.gmail.com';
                 $mail->SMTPAuth   = true;                  
-                $mail->Username   = 'contact.fundmenaija@gmail.com';
-                $mail->Password   = 'asd123ASD_';          
+                $mail->Username   = EMAIL;
+                $mail->Password   = PASSWORD;          
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 // $mail->Port       = 587;                        
                 $mail->Port       = 465;                           
             
                 //Recipients
-                $mail->setFrom('contact@fundmenaija.com', 'User Contact');
-                $mail->addAddress('contact.fundmenaija@gmail.com', 'FundMeNaija contact');               
-                $mail->addReplyTo($email, 'Sender');
+                $mail->setFrom(SENDER, 'User Contact');
+                // $mail->addAddress(, 'FundMeNaija contact');               
+                $mail->addReplyTo(SENDER, 'Sender');
             
                 // Content
                 $mail->isHTML(true);        
@@ -91,7 +96,7 @@ if(isset($_POST['contact'])){
     <link href="./assets/img/favicon-32x32.png" rel="icon">
     <link href="./assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
 
-    <title>FundMeNaija | Home</title>
+    <title>FundMeNaija | Contact</title>
 
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">

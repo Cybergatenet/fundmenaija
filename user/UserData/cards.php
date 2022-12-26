@@ -95,6 +95,7 @@ $AccountNo = $_SESSION['AccountNo'];
                                 <p class="card-text pl-2 pr-2"> &emsp; You Have Successfully send your request Application, Your request verificaton is in progress. This Process usually take less than 24hours. <a hraf="mailto: contact@fundmenaija.com">Contact Us</a>, if you experience any difficulties. </p>
                                 <p class="card-text pl-2 pr-2">Thank You, </p>
                                 <p class="card-text mb-4 pl-2 pr-2"><?php echo APP_NAME ?></p>
+                                <a href="./Dashboard.php" class="btn btn-success float-right">OK</a>
 
 
                             </div>
@@ -142,7 +143,7 @@ $AccountNo = $_SESSION['AccountNo'];
 
             <div class="d-flex justify-content-between mt-3">
  <h6 class="text-light" style="font-family: 'Courier New', Courier, monospace;"><?php echo $Name ?></h6>
-                                                                <h6 class="text-light" style="font-family: 'Courier New', Courier, monospace;">Exp <?php echo $ExpiryDate ?></h6>
+    <h6 class="text-light" style="font-family: 'Courier New', Courier, monospace;">Closing Date <?php echo $ExpiryDate ?></h6>
 
                                                             </div>
 
@@ -160,8 +161,8 @@ $AccountNo = $_SESSION['AccountNo'];
                                                 <div id="OnCardToggle" class="card dcard-back">
                                                     <div class="card-body" style="padding: 0px;">
 
-                                                        <div style="padding-top: 10px;">
-                                                            <p class="text-light dback-tittle">for customer service email contact@fundmenaija.com</p>
+                            <div style="padding-top: 10px;">
+                            <p class="text-light dback-tittle">For customer service email contact@fundmenaija.com</p>
                                                         </div>
 
                                                         <div class="strip">
@@ -175,33 +176,24 @@ $AccountNo = $_SESSION['AccountNo'];
 <p class="description">This Fund from <?php echo APP_NAME ?> organisation pursuant inline with a license from Ministry of Finance. Use of this fund is subject to the agreement, as amended, The Fund being raised belongs to the issuer and can be stop or may be revoked without notice if any fraudulent activity is suspected.</p>
 
                                                         </div>
-
-
-                                                        <div class=" d-flex justify-content-start">
-                                                            <h4 id="NewDebitNo" class="text-light" style="font-family: 'Courier New', Courier, monospace;"></h4>
+                    <div class=" d-flex justify-content-start">
+                    <h4 id="NewDebitNo" class="text-light" style="font-family: 'Courier New', Courier, monospace;"></h4>
                                                         </div>
-
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-
                             </div>
 
-                            <!-- Debit Card Details -->
-
-
+                            <!-- Fund Raise Details -->
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <h1 class="text-center mb-4 ">Your Fund Raising Details</h1>
-
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <p>Account Number</p>
@@ -209,11 +201,10 @@ $AccountNo = $_SESSION['AccountNo'];
                                         <p>Name</p>
                                         <p>Amount</p>
                                         <p>Issued Date</p>
-                                        <p>Expiry Date</p>
-                                        <p>Card Status</p>
+                                        <p>Closing Date</p>
+                                        <p>Fund Status</p>
                                         <p>Verification Status</p>
                                     </div>
-
                                     <div>
                                         <p>:</p>
                                         <p>:</p>
@@ -245,7 +236,7 @@ $AccountNo = $_SESSION['AccountNo'];
 
             <?php
             } elseif ($Status == "Inactive") { ?>
-                <h5 class="text-danger text-center text-size-10">Your Request is Deactivated Please contact  To activate</h5>
+                <h5 class="text-danger text-center text-size-10">Your Request is Deactivated. Please contact FundMeNaija To activate</h5>
             <?php }
         } else { ?>
             <div class="row mt-2 d-flex justify-content-center">
@@ -259,9 +250,14 @@ $AccountNo = $_SESSION['AccountNo'];
                             </div>
                         </div>
                         <div class="card-body">
-                            <h1 class="text-center mb-4">Apply for Fund Raise</h1>
+                            <h1 class="text-center mb-4 font-weight-bold">Apply for Fund Raise</h1>
                             <p class="card-text mb-4 p-2">
                                 <textarea style="width: 100%; padding: 20px" row="5" col="5" placeholder="What is your reason for raising...?"></textarea>
+                            </p>
+                            <p class="card-text mb-4 p-2 h5">Add Two Images of your Fund Raise</p>
+                            <p class="card-image mb-4 p-2 px-4 row">
+                                <input type="file" style="width: 50%; padding: 20px" row="5" col="5" class="col-6 border" required>
+                                <input type="file" style="width: 50%; padding: 20px" row="5" col="5" class="col-6 border" required>
                             </p>
 
                             <div class="d-flex justify-content-center">
@@ -327,8 +323,5 @@ $AccountNo = $_SESSION['AccountNo'];
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
-
-
 </body>
-
 </html>

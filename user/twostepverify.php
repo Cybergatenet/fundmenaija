@@ -45,7 +45,7 @@ if (isset($_POST['forgotBtn'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Two Step Verification</title>
+    <title>FundMeNaija | Two Step Verification</title>
     <link href="../assets/img/favicon-32x32.png" rel="icon">
     <link href="../assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
     <meta name="description" content="Implement Google like Time-Based Authentication into your existing PHP application. And learn How to Build it? How it Works? and Why is it Necessary these days." />

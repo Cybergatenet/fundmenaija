@@ -87,14 +87,14 @@ include "../config.php";
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="password" class="sr-only">Password</label>
-                                    <input type="Account Number" name="AccountNo" id="AccountNo" class="form-control" placeholder="AccountNo" required>
+                                    <input type="Account Number" name="AccountNo" id="AccountNo" class="form-control" placeholder="Account ID" required>
                                 </div>
                                 <input name="next" id="next" class="btn btn-block login-btn mb-4" type="submit" value="Next >>">
                             </form>
                             <p class="login-card-footer-text">Go Back To <a href="../index.php" class="text-reset">Home</a></p>
                             <nav class="login-card-footer-nav">
-                                <a href="../pages/terms.php">Terms of use.</a>
-                                <a href="../pages/privacypolicy.php">Privacy policy</a>
+                                <a href="../auth/about.php">Terms of use.</a>
+                                <a href="../auth/about.php">Privacy policy</a>
                             </nav>
                         </div>
                     </div>

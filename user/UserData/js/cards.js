@@ -1,8 +1,7 @@
-console.log("Hello")
+// console.log("Hello")
 $(document).ready(function () {
 
     $("#SendAppBtn").click(function (e) {
-
 
         $.ajax({
             type: "POST",
@@ -10,7 +9,7 @@ $(document).ready(function () {
             data: { DebitCardApp: "FirstApply" },
             // dataType: "dataType",
             success: function (response) {
-                console.log(response);
+                // console.log(response);
                 if (response == 1) {
                     Swal.fire({
                         position: 'center',
@@ -20,9 +19,7 @@ $(document).ready(function () {
                         timer: 1500
                     })
                     setTimeout(function () {
-
                         location.reload();
-
                     }, 2000);
                 }
                 else {
@@ -38,9 +35,6 @@ $(document).ready(function () {
 
             }
         });
-
-
-
         e.preventDefault();
 
     });

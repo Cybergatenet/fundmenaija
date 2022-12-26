@@ -33,8 +33,8 @@
     $msgClass = '';
 
     #### Fetching single Issue
-    $user_id = mysqli_real_escape_string($conn, htmlspecialchars($_GET['user_id']));
-    $issue_id = mysqli_real_escape_string($conn, htmlspecialchars($_GET['issue_id']));
+    $user_id = mysqli_real_escape_string($conn, htmlspecialchars(isset($_GET['user_id'])));
+    $issue_id = mysqli_real_escape_string($conn, htmlspecialchars(isset($_GET['issue_id'])));
 
     if(!$issue_id || !$user_id){
         header('location: ./donate.php');
@@ -247,9 +247,9 @@
                     <div class="h6 text-white">FUNDMENAIJA</div>
                 </div>
                 <div class="social-icons m-4">
-                    <i class='fab fa-facebook fa-1x'></i>
-                    <i class='fab fa-instagram fa-1x mx-4'></i>
-                    <i class='fab fa-twitter fa-1x'></i>
+                    <!-- <i class='fab fa-facebook fa-1x'></i> -->
+                    <i class='fab fa-instagram fa-2x mx-4'></i>
+                    <!-- <i class='fab fa-twitter fa-1x'></i> -->
                 </div>
             </span>
 

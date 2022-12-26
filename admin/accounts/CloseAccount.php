@@ -180,7 +180,7 @@ mysqli_multi_query($conn, $resetQuery) or die(mysqli_error($conn));
 
                     <li class="menuHover">
                         <a href="../../admin/cards.php" class="nav-link text-left" role="button">
-                            <i class="flaticon-bar-chart-1"></i> <i class="bx bxs-credit-card ico"></i>Cards Requests <span class="badge badge-success" style="font-size: 12px; margin-left: 50px;"> <?php echo $debitNotify; ?> new</span>
+                            <i class="flaticon-bar-chart-1"></i> <i class="bx bxs-credit-card ico"></i>Fund Requests <span class="badge badge-success" style="font-size: 12px; margin-left: 50px;"> <?php echo $debitNotify; ?> new</span>
                         </a>
                     </li>
 

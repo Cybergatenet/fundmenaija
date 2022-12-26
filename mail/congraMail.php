@@ -1,58 +1,119 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-include_once "../config.php";
-echo "sending mail...";
-// function sendMessage($customerMail, $name)
+require '../mail/phpmailer/PHPMailer/src/Exception.php';
+require '../mail/phpmailer/PHPMailer/src/PHPMailer.php';
+require '../mail/phpmailer/PHPMailer/src/SMTP.php';
+
+include_once('../config.php');
+
 function sendMessage($customerMail, $name)
 {
+    $mail = new PHPMailer(true);
 
-    require 'PHPMailerAutoload.php';
-    require 'class.smtp.php';
-    $mail  = new PHPMailer;
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->Port = 587;
-    $mail->SMTPAuth = true;
-    $mail->SMTPSecure = 'tls';
+    try {
+        //Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = EMAIL;                     //SMTP username
+        $mail->Password   = PASSWORD;                               //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-    $mail->Username = EMAIL;
-    $mail->Password = PASSWORD;
+        //Recipients
+        $mail->setFrom(EMAIL, 'FundMeNaija');
 
-    $content = file_get_contents('../mail/congraTemp.php');
-    $mail->setFrom(SENDER, APP_NAME);
-    $mail->addAddress($customerMail);
-    $mail->addReplyTo(EMAIL);
+        $mail->addAddress($customerMail, $name);     //Add a recipient
 
-    $mail->isHTML(true);
-    $mail->Subject = "Account Created Sucessfully!";
+        $mail->addReplyTo(SENDER, 'FundMeNaija');
 
-    $swap_var = array(
+        $mail->isHTML(true);
+        
+        $content = file_get_contents('../mail/congraTemp.php');
+        $mail->Subject = "Account Created Sucessfully!";
 
-        "{Name}" => "$name",
-        "{APP_NAME}" => APP_NAME
+        $swap_var = array(
 
-    );
+            "{Name}" => "$name",
+            "{APP_NAME}" => APP_NAME
 
-    foreach (array_keys($swap_var) as $key) {
-        if (strlen($key) > 2 && trim($key) != "") {
-            $content = str_replace($key, $swap_var[$key], $content);
+        );
+
+        foreach (array_keys($swap_var) as $key) {
+            if (strlen($key) > 2 && trim($key) != "") {
+                $content = str_replace($key, $swap_var[$key], $content);
+            }
         }
-    }
 
-    $mail->Body = "$content";
+        $mail->Body = "$content";
 
+        // $mail->Body    = 'Use this code to valid your Account <b>in bold!</b>';
+        // $mail->AltBody = 'Alternatively, you can click on this link to verify your account';
 
-    if (!$mail->send()) {
-        echo "Mail not sent <br>";
-        // echo $mail->ErrorInfo;
-        var_dump($mail);
-    }else{
-        echo "Mail has been sent";
+        $mail->send();
+        echo "
+            <script>
+                alert('Verification Code Sent To Email');
+            </script>
+        ";
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
 
+// function sendMessage($customerMail, $name)
+// function sendMessage($customerMail, $name)
+// {
 
-$email = "abelchinedu2@gmail.com";
-$username = 'Cybergate';
+//     require 'PHPMailerAutoload.php';
+//     require 'class.smtp.php';
+//     $mail  = new PHPMailer;
+//     $mail->isSMTP();
+//     $mail->Host = 'smtp.gmail.com';
+//     $mail->Port = 587;
+//     $mail->SMTPAuth = true;
+//     $mail->SMTPSecure = 'tls';
 
-sendMessage($email, $username);
+//     $mail->Username = EMAIL;
+//     $mail->Password = PASSWORD;
+
+//     $mail->setFrom(SENDER, APP_NAME);
+//     $mail->addAddress($customerMail);
+//     $mail->addReplyTo(EMAIL);
+    
+//     $mail->isHTML(true);
+
+//     $content = file_get_contents('../mail/congraTemp.php');
+//     $mail->Subject = "Account Created Sucessfully!";
+
+//     $swap_var = array(
+
+//         "{Name}" => "$name",
+//         "{APP_NAME}" => APP_NAME
+
+//     );
+
+//     foreach (array_keys($swap_var) as $key) {
+//         if (strlen($key) > 2 && trim($key) != "") {
+//             $content = str_replace($key, $swap_var[$key], $content);
+//         }
+//     }
+
+//     $mail->Body = "$content";
+
+
+//     if (!$mail->send()) {
+//         echo "Mail not sent <br>";
+//         // echo $mail->ErrorInfo;
+//         // var_dump($mail);
+//     }else{
+//         echo "Mail has been sent";
+//     }
+// }
+
+?>

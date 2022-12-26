@@ -11,6 +11,24 @@ if (isset($_SESSION['username'])) {
 }else{
 
     if (isset($_POST['login'])) {
+        // check if reCaptcha has been validated by Google      
+        $secret = SECRET;
+        $captchaId = htmlentities($_POST['g-recaptcha-response']);
+        
+        //sends post request to the URL and tranforms response to JSON
+        $responseCaptcha = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$captchaId));
+        // Recaptcha Validation
+        if(empty(trim($captchaId))){
+            // echo '<script>alert("Recaptcha verify failed. Try Again");</script>';
+            header("Location: ../user/login.php?error=You MUST check Recaptcha button");
+            exit();
+        }elseif($responseCaptcha->success != 'true'){
+            // var_dump($responseCaptcha);
+            header("Location: ../user/login.php?error=Recaptcha verification failed");
+            exit();
+            // return;
+        }
+
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $password = $_POST['password'];
         $hashPassword = md5($password);
@@ -48,8 +66,12 @@ if (isset($_SESSION['username'])) {
                             $_SESSION['username'] = $row['Username'];
                             $_SESSION['verifyCode'] = $row['Username'];
                             // $_SESSION['id'] = $row['ID'];
-                            $_SESSION['accountNo'] = $row['AccountNo'];       
-                            header("Location: ../user/twostepverify.php");
+                            $_SESSION['accountNo'] = $row['AccountNo'];   
+                            
+                            // replaced with google recaptcha && LOGIN instead
+                            // header("Location: ../user/twostepverify.php");
+
+                            header('Location: ../user/UserData/Dashboard.php');
                             mysqli_close($conn);
                         } else {
                             header("Location: ../user/login.php?error=Account not Activated");
@@ -79,6 +101,11 @@ if (isset($_SESSION['username'])) {
         }
     }
 }
+// Route to handle forgotten password
+    if (isset($_POST['forgotBtn'])) {
+
+        header('Location: ../user/twostepsetup.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -163,7 +190,10 @@ if (isset($_SESSION['username'])) {
                                     <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
                                 </div>
                                 <div class="my-3">
-                                    <div class="g-recaptcha" data-sitekey="6Ldm7HcjAAAAAC-k9g6fBmge6H8h8uOSFeEI3POO"></div>
+                                    <input type="hidden" name="g-recaptcha-response" 
+                                    value="<?php echo isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : ''; ?>"
+                                    required>
+                                    <div class="g-recaptcha" data-sitekey="<?php echo SITE_KEY; ?>" class="form-control"></div>
                                 </div>
 
                                 <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
@@ -171,8 +201,8 @@ if (isset($_SESSION['username'])) {
                             <a href="./forgotPassword.php" class="forgot-password-link">Forgot password?</a>
                             <p class="login-card-footer-text">Don't have an account? <a href="./createAccount.php" class="text-reset">Register here</a></p>
                             <nav class="login-card-footer-nav">
-                                <a href="/terms.php">Terms of use</a>
-                                <a href="/privacypolicy.php">Privacy policy</a>
+                                <a href="../auth/about.php">Terms of use</a>
+                                <a href="../auth/about.php">Privacy policy</a>
                             </nav>
                         </div>
                     </div>

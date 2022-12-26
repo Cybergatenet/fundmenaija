@@ -7,7 +7,6 @@ $username = $_SESSION['username'];
 // echo $username;
 $AcNo = $_SESSION['AccountNo'];
 
-
 // echo "run";
 
 if (isset($_POST['BalanceCheck'])) {
@@ -495,7 +494,14 @@ if (isset($_POST['DebitCardApp'])) {
         $query = "INSERT INTO cards(AccountNo, Name, CardNo, cvv, IssuedDate, ExpiryDate, Status, Verified) VALUES ('$AcNo', '$Name', '$DebitCard_No', $cvv,'', '', 'Inactive', 'No')";
         $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
         echo $result;
+
+
+        // Query Two
+        $add_issues_query = "INSERT INTO _issues(AccountNo, Name, CardNo, cvv, IssuedDate, ExpiryDate, Status, Verified) VALUES ('$AcNo', '$Name', '$DebitCard_No', $cvv,'', '', 'Inactive', 'No')";
+        $add_result = mysqli_query($conn, $add_issues_query) or die(mysqli_error($conn));
+        echo $add_result;
     } else {
         echo "fail";
     }
 }
+

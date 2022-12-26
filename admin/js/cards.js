@@ -44,6 +44,7 @@ $(document).ready(function () {
                                 buttons: true,
                                 // value:true
                             }).then((value) => {
+                                console.log(value)
                                 location.reload();
                             });
 
