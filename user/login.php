@@ -130,7 +130,7 @@ if (isset($_SESSION['username'])) {
                 <div class="row no-gutters">
                     
                     <div class="col-md-6">
-                        <img src="../assets/img/PageImage/loginImage.jpg" alt="login" class="login-card-img">
+                        <img src="../assets/img/PageImage/loginImage.jpg" alt="login" class="login-card-img img-fluid">
                     </div>
                     <div class="col-md-6 d-flex flex-column align-items-center">
                         <div class="">
