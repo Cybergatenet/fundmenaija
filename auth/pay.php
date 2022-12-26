@@ -100,6 +100,18 @@
             border-radius: 10px;
             color: white; 
         }
+
+        .payment-container{
+            position: relative;
+            display: flex;
+        }
+
+        .payment-container .paymentImg{
+            position: absolute;
+            right: 1em;
+            top: 0.5em;
+        }
+
         #button{
             min-width: 100%;
             border-radius: 4px!important;
@@ -108,7 +120,7 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <header class='shadow-sm'>
+    <header class='shadow-sm bg-white'>
         <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
                     <!--------------------- Logo --------------------->
                     <a href='../index.php' class="logo-container nav-link d-flex align-items-center">
@@ -163,9 +175,10 @@
                         </div>
                     </ul>
 
-                    <!-- ----------------- Hamburger menu ----------------- -->
+                     <!-- ----------------- Hamburger menu ----------------- -->
                     <div class='hambuger' onClick="hamburger()">
                         <i class='menuIcon fa fa-bars text-dark fa-2x'></i>
+                        <i class='menuIcon fa fa-times text-dark fa-2x hideMenu'></i>
                     </div>
                 </div>
             </header>
@@ -214,11 +227,18 @@
 <!-- Fund Raiser's Email -->
                 <input type="hidden" id="email" value="<?php echo $customer['C_Email']; ?>">
                 <br>
-                <select name="p_method" id="p_method" class="form-control" required>
-                    <option value="" disabled selected>Select Donations Method</option>
-                    <option value="onepass">OnePass</option>
-                    <option value="paystack">Paystack</option>
-                </select>
+                <div class="payment-container">
+                    <select name="p_method" id="p_method" class="form-control" required>
+                        <option value="" disabled selected>Select Donations Method</option>
+                        <option value="onepass">OnePass</option>
+                        <option value="paystack">Paystack</option>
+                    </select>
+                    <div class="paymentImg col-2">
+                        <img  class='img-fluid' id="pay-Img">
+                        <!-- OnePassLogo.png -->
+                        <!-- paystack3.png -->
+                    </div>
+                </div>
                 <br>
                 <span class="d-flex">
                     <input type="checkbox" name="robot" id="robot" required>
@@ -278,6 +298,7 @@
         const amount = document.querySelector('#amount');
         const email = document.querySelector('#email');
         const p_method = document.querySelector('#p_method');
+        const payImg = document.querySelector('#pay-Img');
         const robot = document.querySelector('#robot');
         const form = document.getElementById("form");
 
@@ -297,6 +318,30 @@
                 console.log("Please Fill out all fields");
             }
         });
+
+        //--------- Add payment method logo ---------
+        const addLogo = () => {
+            if (p_method.value != '') {
+                if (p_method.value == 'onepass') {
+                    payImg.src = '../assets/img/OnePassLogo.png'
+                    
+                }else if (p_method.value == 'paystack') {
+                    payImg.src = '../assets/img/paystack3.png'
+                }
+            }
+        }
+        p_method.addEventListener('change', () => {
+            addLogo()
+        })
+
+        
+
+
+
+
+
+
+
 
 
         // $(document).ready(function () {
