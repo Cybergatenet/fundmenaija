@@ -5,6 +5,17 @@ session_start();
 // var_dump($_SESSION);
 include "connection.php";
 include '../mail/mail_config.php';
+
+// Check to see if User is Logged
+if (isset($_SESSION['username'])) {
+    if(isset($_SESSION['admin'])){
+        header("location: ../admin/Dashboard.php");
+        exit();
+        return;
+    }
+    header("location: ../user/UserData/Dashboard.php");
+    exit();
+}
 // checking Submit button is clicked or not by isset function
 if (isset($_POST['submit'])) {
     // -------------- Basic Detail Section ------------
@@ -188,7 +199,9 @@ if (isset($_POST['submit'])) {
             // unset($_SESSION['otp']);
             $_SESSION['twostep'] = $Account_Number;
             // redirect to login instead
-            header('Location: ../user/twostepsetup.php');
+            header('Location: ../user/login.php');
+
+            // header('Location: ../user/twostepsetup.php');
         }
     } else {
         $ConfirmPassError = "Please Confirm Password";
@@ -222,14 +235,14 @@ if (isset($_POST['submit'])) {
 
     // Pan Card Variable
 
-    $Pan_Files = $_FILES['PanCardUp'];
-    $Pan_fileName = $Pan_Files['name'];
-    $Pan_fileName = preg_replace('/\s/', '_', $Pan_fileName); // replacing space with underscore
-    $Pan_fileType = $Pan_Files['type'];
-    $Pan_fileError = $Pan_Files['error'];
-    $Pan_fileTempName = $Pan_Files['tmp_name'];
-    $Pan_fileSize = $Pan_Files['size'];
-    $Pan_Up_error = false;
+    // $Pan_Files = $_FILES['PanCardUp'];
+    // $Pan_fileName = $Pan_Files['name'];
+    // $Pan_fileName = preg_replace('/\s/', '_', $Pan_fileName); // replacing space with underscore
+    // $Pan_fileType = $Pan_Files['type'];
+    // $Pan_fileError = $Pan_Files['error'];
+    // $Pan_fileTempName = $Pan_Files['tmp_name'];
+    // $Pan_fileSize = $Pan_Files['size'];
+    // $Pan_Up_error = false;
 
     // Adhar Card Variable
     $Adhar_Files = $_FILES['AdharCardUp'];
@@ -248,47 +261,50 @@ if (isset($_POST['submit'])) {
 
     // use built in function ( pathinfo() ) to seprate file name and store them in seprate variable
 
-    $Pan_file_extention = pathinfo($Pan_fileName, PATHINFO_EXTENSION);
-    $Pan_fileName = pathinfo($Pan_fileName, PATHINFO_FILENAME);
+    // $Pan_file_extention = pathinfo($Pan_fileName, PATHINFO_EXTENSION);
+    // $Pan_fileName = pathinfo($Pan_fileName, PATHINFO_FILENAME);
 
     $Adhar_file_extention = pathinfo($Adhar_fileName, PATHINFO_EXTENSION);
     $Adhar_fileName = pathinfo($Adhar_fileName, PATHINFO_FILENAME);
 
     // Generating unique name with date and time 
-    $Pan_Unique_Name = $Pan_fileName . date('mjYHis') . "." . $Pan_file_extention;
+    // $Pan_Unique_Name = $Pan_fileName . date('mjYHis') . "." . $Pan_file_extention;
     $Adhar_Unique_Name = $Adhar_fileName . date('mjYHis') . "." . $Adhar_file_extention;
 
     // Validating Pan Card
-
-    if (!empty($Pan_fileName) && !empty($Adhar_fileName)) {
+    // !empty($Pan_fileName) && 
+    // $Pan_fileSize <= 1000000 && 
+    if (!empty($Adhar_fileName)) {
 
         // Setting file size condition
-        if ($Pan_fileSize <= 1000000 && $Adhar_fileSize <= 1000000) {
+        if ($Adhar_fileSize <= 1000000) {
 
             // checking file extention
-            if (in_array($Pan_file_extention, $Valid_Extention) && in_array($Adhar_file_extention, $Valid_Extention)) {
+            // in_array($Pan_file_extention, $Valid_Extention) && 
+            if (in_array($Adhar_file_extention, $Valid_Extention)) {
 
                 // Pancard Destination Variable
-                $Pan_destinationFile = 'customer_data/Pan_doc/' . $Pan_Unique_Name;
+                // $Pan_destinationFile = 'customer_data/Pan_doc/' . $Pan_Unique_Name;
 
                 // Adharcard Destination Variable
                 $Adhar_destinationFile = 'customer_data/SSN_doc/' . $Adhar_Unique_Name;
 
 
                 // Validating All Error Are values are null or not means checking any error in form or not
-                if ($First_Name_error == null && $Last_Name_error == null && $Mobile_Number_error == null && $Pan_Up_error == false && $Email_error == null && $UsernameError == false && $PasswordError == false && $ConfirmPassError == false) {
+                if ($First_Name_error == null && $Last_Name_error == null && $Mobile_Number_error == null && $Email_error == null && $UsernameError == false && $PasswordError == false && $ConfirmPassError == false) {
 
 
                     // Uploading Document to server
                     $Adhar_Upload = move_uploaded_file($Adhar_fileTempName, $Adhar_destinationFile);
-                    $Pan_Upload = move_uploaded_file($Pan_fileTempName, $Pan_destinationFile);
+                    // $Pan_Upload = move_uploaded_file($Pan_fileTempName, $Pan_destinationFile);
 
                     // Pan And SSN is upload or not
-                    if ($Pan_Upload && $Adhar_Upload) {
+                    // $Pan_Upload &&
+                    if ($Adhar_Upload) {
                         // echo "file Uploaded successfully";
                         try {
                             // mysql query for customer table
-                            $Upload_query = "INSERT INTO `customer_detail`(`Account_No`, `C_First_Name`, `C_Last_Name`,  `C_Mobile_No`, `C_Email`, `Id_type`, `C_Adhar_Doc`, `C_Pan_Doc`, `ProfileColor`, `ProfileImage`, `Bio`) VALUES('$Account_Number', '$First_Name', '$Last_Name', '$Mobile_Number', '$Email','$Id_type','$Adhar_destinationFile', '$Pan_destinationFile', '$hex', 'Not Available', 'Biolography')";
+                            $Upload_query = "INSERT INTO `customer_detail`(`Account_No`, `C_First_Name`, `C_Last_Name`,  `C_Mobile_No`, `C_Email`, `Id_type`, `C_Adhar_Doc`, `C_Pan_Doc`, `ProfileColor`, `ProfileImage`, `Bio`) VALUES('$Account_Number', '$First_Name', '$Last_Name', '$Mobile_Number', '$Email','$Id_type','$Adhar_destinationFile', '$Adhar_destinationFile', '$hex', 'Not Available', 'Biolography')";
 // use $Adhar_destinationFile as $profile Image
 
                             // sql query for login table
@@ -305,27 +321,31 @@ if (isset($_POST['submit'])) {
 // Sending Email
                             require '../mail/congraMail.php';
                             sendMessage($Email, $First_Name);
+                            // require '../mail/mail_config.php';
+                            // sendOtp($Email, '123456' ,$First_Name);
                         } catch (Exception $e) {
-                            echo "Could NOT Process Image. Try Again";
+                            // echo "Could NOT Process Image. Try Again";
+                            $Adhar_Up_error = "Could NOT Process Image. Try Again";
                             // echo 'Message: ' . $e->getMessage();
                         }
                     }else{
-                        echo "Files could not be uploaded. Try Again";
+                        // echo "Files could not be uploaded. Try Again";
+                        $Adhar_Up_error = 'Files could not be uploaded. Try Again';
                     }
                 }
             } else {
-                $Pan_Up_error = 'Invalid file extention';
+                // $Pan_Up_error = 'Invalid file extention';
                 $Adhar_Up_error = 'Invalid file extention';
-                echo ('Invalid file extention');
+                // echo ('Invalid file extention');
             }
         } else {
-            echo "File is too large";
-            $Pan_Up_error = 'File is too large';
+            // echo "File is too large";
+            // $Pan_Up_error = 'File is too large';
             $Adhar_Up_error = 'File is too large';
         }
     } else {
-        echo " Please Give name to file";
-        $Pan_Up_error = 'Please Give name to file';
+        // echo " Please Give name to file";
+        // $Pan_Up_error = 'Please Give name to file';
         $Adhar_Up_error = 'Please Give name to file';
     }
 }
@@ -355,7 +375,7 @@ if (isset($_POST['submit'])) {
     <form class='shadow' id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data" novalidate>
         <a href="../index.php" class="nav-link text-dark d-flex align-items-center my-4">
             <i class="fa fa-angle-left fa-2x pointer"></i>
-            <p class="my-2 pointer">Back</p>
+            <p class="my-2 pointer"> Home</p>
         </a>
 
         <h1 class="mb-3">Create Account</h1>
@@ -434,7 +454,7 @@ if (isset($_POST['submit'])) {
             </p>
         </div>
         <div class="row g-2 mb-3"> 
-            <div class="col-md mb-3">
+            <!-- <div class="col-md mb-3">
                 <div class="col-md">                            
                     <div class="form-group mb-3">
                         <label for="exampleFormControlFile1">Passport Photograph</label>
@@ -448,7 +468,7 @@ if (isset($_POST['submit'])) {
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md g-2 mb-3">
                 <div class="col-md"> 
                     <div class="form-group mb-3">

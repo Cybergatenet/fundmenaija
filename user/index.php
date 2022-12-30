@@ -9,9 +9,9 @@
 		unset($_SESSION['verified']);
 
 		
-		header("location: ../user/login.php");
+		header("location: ./login.php");
 	}else{
         header("location: ../index.php");
 	}
-    // header("Location: https://fundmenaija.com");
+    header("Location: https://fundmenaija.com");
 ?>

@@ -39,7 +39,7 @@
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "GET",
     CURLOPT_HTTPHEADER => array(
-      "Authorization: Bearer ".Test_Secret,
+      "Authorization: Bearer ".Live_Secret,
       "Cache-Control: no-cache",
     ),
   ));
@@ -68,12 +68,14 @@
     date_default_timezone_set('Africa/Lagos');
 
     $date_time = date('m/d/y h:i:s a', time());
-    echo "payment Successful";
+    echo "Payment Successful";
 
     // Insert Data into DB
     // $stmt = $conn->prepare('INSERT INTO `accounts`(`Account_No`, `Balance`, `SavingBalance`, `SavingTarget`, `AccountType`, `State`) VALUES (?,?,?,?)'); // insert data
 
     ### Fetch previou data and update instead
+    // fetch OLd balance and add the new deposit to it
+
     $stmt = $conn->prepare('UPDATE `accounts` SET `Balance`=?'); // Update data
     $stmt->bind_param('s', $customer['Account_No']);
     $stmt->execute();
@@ -86,14 +88,14 @@
         // Fail
         echo "Error: ". mysqli_error($conn);
         exit;
-        die("Payment could not be Saved");
+        die("Payment could not be Saved. Reciept Failed");
     }
     $stmt->close();
     $conn->close();
 
 
   }else{
-    echo "An Error with your payment";
+    echo "Sorry, An Error Occurred with your payment";
     header('location: ./auth/error.php');
   }
 ?>

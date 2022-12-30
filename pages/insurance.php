@@ -13,7 +13,7 @@ include "header.php" ?>
 
       <div class="d-flex justify-content-between align-items-center">
         <ol>
-          <li><a href="../">Home</a></li>
+          <li><a href="../user/UserData/Dashboard.php">Home</a></li>
           <li>Insurance</li>
         </ol>
       </div>
@@ -36,7 +36,6 @@ include "header.php" ?>
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
-
 <?php
 include "footer.php";
 ?>

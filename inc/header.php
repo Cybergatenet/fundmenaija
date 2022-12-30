@@ -47,7 +47,7 @@
                     </li>
                     <li>
                         <button>
-                            <a href="./user/createAccount.php"
+                            <a href="../user/createAccount.php"
                                 class="nav-link font-weight-bold text-white px-4">Sign up
                             </a>
                         </button>

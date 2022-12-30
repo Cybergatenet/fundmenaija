@@ -41,6 +41,50 @@
         // $errors = [];
         // $data = [];
 
+
+        require_once 'HTTP/Request2.php';
+        $request = new HTTP_Request2();
+        $request->setUrl('https://user-api2-staging.ourpass.co/v1/api/subaccounts/375/transactions?page=1&limit=10');
+        $request->setMethod(HTTP_Request2::METHOD_GET);
+        $request->setConfig(array(
+        'follow_redirects' => TRUE
+        ));
+        $request->setHeader(array(
+        'apiKey' => '{{apiKey}}'
+        ));
+        $request->setBody('');
+        try {
+        $response = $request->send();
+        if ($response->getStatus() == 200) {
+            echo $response->getBody();
+        }
+        else {
+            echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+            $response->getReasonPhrase();
+        }
+        }
+        catch(HTTP_Request2_Exception $e) {
+        echo 'Error: ' . $e->getMessage();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // if (empty($_POST['name'])) {
         //     $errors['name'] = 'Name is required.';
         // }

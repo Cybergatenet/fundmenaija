@@ -387,48 +387,46 @@ $(document).ready(function () {
 
     // ****************************************************** Document Validation *************************************
 
-    $("#PANCardUp").change(function () {
+    // $("#PANCardUp").change(function () {
 
-        // Taking Pancard file size in varible
-        let PanSize = $(this)[0].files[0].size;
-        console.log(PanSize);
+    //     // Taking Pancard file size in varible
+    //     let PanSize = $(this)[0].files[0].size;
+    //     console.log(PanSize);
 
-        // Storing Pan card file name string in varible
-        let PanfileStr = $(this).val();
+    //     // Storing Pan card file name string in varible
+    //     let PanfileStr = $(this).val();
 
-        // divideing filename and extention in two parts i.e name and extention 
-        let test = PanfileStr.match(/(.+)\.(.+)/);
+    //     // divideing filename and extention in two parts i.e name and extention 
+    //     let test = PanfileStr.match(/(.+)\.(.+)/);
 
-        // Storing file name
-        let Panfilename = test[1];
+    //     // Storing file name
+    //     let Panfilename = test[1];
 
-        // Storing Extention 
-        let PanfileExtention = test[2];
-        console.log(PanfileExtention)
-        // Validating file Size
-        if (PanSize <= 2000000) {
-            if (PanfileExtention == 'jpg' || PanfileExtention == 'png' || PanfileExtention == 'jpeg') {
-                $("#PanUPError").text("");
-                $("#nextBtn").prop('disabled', false);
-                console.log("Sucess");
-            }
-            else {
-                $("#PanUPError").text("Invalid File Extention");
-                $("#nextBtn").prop('disabled', true);
-                console.log("fail");
-                PanUPError = 1;
-            }
-        }
-        else {
-            $("#PanUPError").text("File Size is large, upload size maximum 2 MB");
-            $("#nextBtn").prop('disabled', true);
-            console.log("fail size");
-            PanUPError = 1;
-        }
+    //     // Storing Extention 
+    //     let PanfileExtention = test[2];
+    //     console.log(PanfileExtention)
+    //     // Validating file Size
+    //     if (PanSize <= 2000000) {
+    //         if (PanfileExtention == 'jpg' || PanfileExtention == 'png' || PanfileExtention == 'jpeg') {
+    //             $("#PanUPError").text("");
+    //             $("#nextBtn").prop('disabled', false);
+    //             console.log("Sucess");
+    //         }
+    //         else {
+    //             $("#PanUPError").text("Invalid File Extention");
+    //             $("#nextBtn").prop('disabled', true);
+    //             console.log("fail");
+    //             PanUPError = 1;
+    //         }
+    //     }
+    //     else {
+    //         $("#PanUPError").text("File Size is large, upload size maximum 2 MB");
+    //         $("#nextBtn").prop('disabled', true);
+    //         console.log("fail size");
+    //         PanUPError = 1;
+    //     }
 
-
-
-    });
+    // });
 
 
     $("#AdharCardUp").change(function () {

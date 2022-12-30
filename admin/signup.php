@@ -1,6 +1,14 @@
 <?php
     
     session_start();
+    if (!isset($_SESSION['accountNo']) || !isset($_SESSION['username'])) {
+      session_destroy();
+      unset($_SESSION['accountNo']);
+      unset($_SESSION['username']);
+      header("Location: ../user/login.php");
+    }else{
+      header("Location: ../Dashboard.php");
+    }
 
     // Include connection page into this page
     include 'connection.php';

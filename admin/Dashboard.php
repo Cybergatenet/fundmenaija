@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['accountNo'])) {
-    header("Location: /login");
+if (!isset($_SESSION['accountNo']) || !isset($_SESSION['username'])) {
+    header("Location: ../user/login.php");
 }
 
 
@@ -460,10 +460,10 @@ GROUP BY
                                 <ul class="list-inline">
 
                                     <li class="footer-item">
-                                        <a class="text-muted light" href="../pages/privacypolicy.php">Privacy</a>
+                                        <a class="text-muted light" href="../auth/about.php">Privacy</a>
                                     </li>
                                     <li class="footer-item">
-                                        <a class="text-muted light" href="../pages/terms.php">Terms</a>
+                                        <a class="text-muted light" href="../auth/about.php">Terms</a>
                                     </li>
                                 </ul>
                             </div>
@@ -499,9 +499,6 @@ GROUP BY
         });
 
         // logout popover on profile 
-
-
-
 
         $("#AdminDropdown").click(function() {
             $(this).popover({

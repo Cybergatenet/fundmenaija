@@ -1,13 +1,26 @@
 <?php
+
 session_start();
 include 'connection.php';
 include "script.php";
 include "../config.php";
 
+// $row = array('ID'=>2);
+
+// echo "super".$row['ID'].random_int(1,9);
+// return;
+
+
 // echo htmlspecialchars($_SERVER['PHP_SELF']);
 // return;
 if (isset($_SESSION['username'])) {
-    header("location: ../admin/dashboard.php");
+    if(isset($_SESSION['admin'])){
+        header("location: ../admin/Dashboard.php");
+        exit();
+        return;
+    }
+    header("location: ../user/UserData/Dashboard.php");
+    exit();
 }else{
 
     if (isset($_POST['login'])) {
@@ -80,12 +93,13 @@ if (isset($_SESSION['username'])) {
                     } else if ($state == 1) {
 
                         if ($status == "Super") {
-
+                            session_start();
 
                             $_SESSION['username'] = $row['Username'];
-                            // $_SESSION['id'] = $row['ID'];
-                            session_start();
+                            $_SESSION['admin'] = "super".$row['ID'].random_int(1,9);
+                            
                             $_SESSION['accountNo'] = $row['AccountNo'];
+
                             header("Location: ../admin/Dashboard.php");
                             mysqli_close($conn);
                         } else {
@@ -106,6 +120,8 @@ if (isset($_SESSION['username'])) {
 
         header('Location: ../user/twostepsetup.php');
     }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -161,9 +177,10 @@ if (isset($_SESSION['username'])) {
                     </div>
                     <div class="col-md-6 d-flex flex-column align-items-center">
                         <div class="">
+                        
                             <a href="../index.php" class="nav-link text-dark d-flex">
                                 <p><<</p>
-                                <p class="mx-2 pointer">Back</p>
+                                <p class="mx-2 pointer">Home</p>
                             </a>
                             <div class="brand-wrapper">
                                 <img src="../assets/img/Logo3.png" alt="logo" class="logo">
@@ -200,10 +217,10 @@ if (isset($_SESSION['username'])) {
                             </form>
                             <a href="./forgotPassword.php" class="forgot-password-link">Forgot password?</a>
                             <p class="login-card-footer-text">Don't have an account? <a href="./createAccount.php" class="text-reset">Register here</a></p>
-                            <nav class="login-card-footer-nav">
+                            <!-- <nav class="login-card-footer-nav">
                                 <a href="../auth/about.php">Terms of use</a>
                                 <a href="../auth/about.php">Privacy policy</a>
-                            </nav>
+                            </nav> -->
                         </div>
                     </div>
                 </div>

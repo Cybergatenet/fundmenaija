@@ -1,4 +1,5 @@
 <?php
+    session_start();
     // Headers for the API
     header("Access-Control-Allow-Origin: *");
     
@@ -90,8 +91,12 @@
                         <li>
                             <a href='./donate.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
                         </li>
-                        <li>
-                            <a href='../user/login.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
+                        <?php 
+                        if(isset($_SESSION['username']) || isset($_SESSION['AccountNo']) || isset($_SESSION['accountNo'])){
+                            echo '<li><a id="nav-link" class="nav-link scrollto text-dark" href="../user/logout.php">Logout</a></li>';
+                        }else{
+                            echo '<li>
+                            <a href="../user/login.php" class="nav-link mx-lg-2 py-2 px-3 text-dark" id="nav-link">Sign in</a>
                         </li>
                         <li>
                             <button>
@@ -99,7 +104,9 @@
                                     class="nav-link font-weight-bold text-white px-4">Sign up
                                 </a>
                             </button>
-                        </li>
+                        </li>';
+                        }
+                    ?>
                     </div>
                 </ul>
 
@@ -115,12 +122,22 @@
                         <li>
                             <a href='./donate.php' class='nav-link my-3 text-white'>Donate</a>
                         </li>
-                        <li>
-                            <a href='../user/login.php' class='nav-link my-3 text-white'>Sign in </a>
+                        <?php 
+                        if(isset($_SESSION['username']) || isset($_SESSION['AccountNo']) || isset($_SESSION['accountNo'])){
+                            echo '<li><a id="nav-link" class="nav-link scrollto text-white" href="../user/logout.php">Logout</a></li>';
+                        }else{
+                            echo '<li>
+                            <a href="../user/login.php" class="nav-link mx-lg-2 py-2 px-3" id="nav-link">Sign in</a>
                         </li>
                         <li>
-                            <a href='../user/createAccount.php' class='nav-link my-3 text-white'>Sign up </a>
-                        </li>
+                            <button>
+                                <a href="../user/createAccount.php"
+                                    class="nav-link font-weight-bold text-white px-4">Sign up
+                                </a>
+                            </button>
+                        </li>';
+                        }
+                    ?>
                     </div>
                 </ul>
 

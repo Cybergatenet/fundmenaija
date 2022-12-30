@@ -6,7 +6,6 @@ include "script.php";
 include "../config.php";
 // if login session is on then following if block execute
 
-
 if (!isset($_SESSION['accountNo'])) {
     header("Location: ../user/forgotPassword.php");
 } else {

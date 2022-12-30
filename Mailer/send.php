@@ -4,8 +4,7 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-    // use PHPMailer\PHPMailer\Exception;
-    // use PHPMailer\PHPMailer\PHPMailer;
+ 
     
     require './phpmailer/PHPMailer/src/Exception.php';
     require './phpmailer/PHPMailer/src/PHPMailer.php';
@@ -14,11 +13,14 @@
     include_once('../config.php');
 
 
+
+
 // //Load Composer's autoloader
 // require 'vendor/autoload.php';
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
+
 
 try {
     //Server settings
@@ -37,7 +39,7 @@ try {
     $mail->addAddress('abelchinedu2@gmail.com', 'Cybergate');     //Add a recipient
 
     // $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo(EMAIL, 'FundMeNaija');
+    $mail->addReplyTo(SENDER, 'FundMeNaija');
     // $mail->addCC('cc@example.com');
     // $mail->addBCC('bcc@example.com');
 

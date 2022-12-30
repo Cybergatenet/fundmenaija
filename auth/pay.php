@@ -1,4 +1,5 @@
 <?php
+    session_start();
     // Headers for the API
     header("Access-Control-Allow-Origin: *");
 
@@ -138,19 +139,22 @@
                             <li>
                                 <a href='./contact.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
                             </li>
-                            <li>
-                                <a href='./donate.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
-                            </li>
-                            <li>
-                                <a href='../user/login.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
-                            </li>
-                            <li>
-                                <button>
-                                    <a href="../user/createAccount.php"
-                                        class="nav-link font-weight-bold text-white px-4">Sign up
-                                    </a>
-                                </button>
-                            </li>
+                            <?php 
+                        if(isset($_SESSION['username']) || isset($_SESSION['AccountNo']) || isset($_SESSION['accountNo'])){
+                            echo '<li><a id="nav-link" class="nav-link scrollto text-dark" href="../user/logout.php">Logout</a></li>';
+                        }else{
+                            echo '<li>
+                            <a href="../user/login.php" class="nav-link mx-lg-2 py-2 px-3 text-dark" id="nav-link">Sign in</a>
+                        </li>
+                        <li>
+                            <button>
+                                <a href="../user/createAccount.php"
+                                    class="nav-link font-weight-bold text-white px-4">Sign up
+                                </a>
+                            </button>
+                        </li>';
+                        }
+                    ?>
                         </div>
                     </ul>
 
@@ -166,12 +170,22 @@
                             <li>
                                 <a href='./donate.php' class='nav-link my-3 text-white'>Donate</a>
                             </li>
-                            <li>
-                                <a href='../user/login.php' class='nav-link my-3 text-white'>Sign in </a>
-                            </li>
-                            <li>
-                                <a href='../user/createAccount.php' class='nav-link my-3 text-white'>Sign up </a>
-                            </li>
+                            <?php 
+                                if(isset($_SESSION['username']) || isset($_SESSION['AccountNo']) || isset($_SESSION['accountNo'])){
+                                    echo '<li><a id="nav-link" class="nav-link scrollto text-white" href="../user/logout.php">Logout</a></li>';
+                                }else{
+                                    echo '<li>
+                                    <a href="../user/login.php" class="nav-link mx-lg-2 py-2 px-3" id="nav-link">Sign in</a>
+                                </li>
+                                <li>
+                                    <button>
+                                        <a href="../user/createAccount.php"
+                                            class="nav-link font-weight-bold text-white px-4">Sign up
+                                        </a>
+                                    </button>
+                                </li>';
+                                }
+                            ?>
                         </div>
                     </ul>
 
@@ -215,19 +229,18 @@
                 <input 
                     type="number" 
                     id="amount" 
-                    step="1000" 
-                    min="1000" 
-                    min-length="1000" 
+                    min="200" 
+                    min-length="200" 
                     class="form-control py-3" 
                     placeholder="Enter Amount" 
-                    title="NOT LESS THAN 1000"
+                    title="NOT LESS THAN 200"
                     name="amount"
                     required
                 >
 <!-- Fund Raiser's Email -->
                 <input type="hidden" id="email" value="<?php echo $customer['C_Email']; ?>">
                 <br>
-                <div class="payment-container">
+             <!---   <div class="payment-container">
                     <select name="p_method" id="p_method" class="form-control" required>
                         <option value="" disabled selected>Select Donations Method</option>
                         <option value="onepass">OnePass</option>
@@ -235,10 +248,9 @@
                     </select>
                     <div class="paymentImg col-2">
                         <img  class='img-fluid' id="pay-Img">
-                        <!-- OnePassLogo.png -->
-                        <!-- paystack3.png -->
+  
                     </div>
-                </div>
+                </div> -->
                 <br>
                 <span class="d-flex">
                     <input type="checkbox" name="robot" id="robot" required>
@@ -306,16 +318,19 @@
             e.preventDefault();
             // console.log("Form submited");
             // ### Validation UI
-            if(donor.value != '' && amount.value != '' && amount.value >= 1000 && p_method.value != '' && email.value != ''){
-                if(p_method.value === 'onepass'){
-                    return runIframe();
-                    // console.log("ONePass: "+p_method.value)
-                }else{
-                    return payWithPaystack();
+            if(donor.value != '' && amount.value != '' && amount.value >= 200 && email.value != ''){
+                // && p_method.value != ''
+                payWithPaystack();
+                // if(p_method.value === 'onepass'){
+                //     return runIframe();
+                //     // console.log("ONePass: "+p_method.value)
+                // }else{
+                    // return payWithPaystack();
                     // console.log("Paystack: "+p_method.value)
-                }
+                // }
             }else{
                 console.log("Please Fill out all fields");
+                alert("Please Fill out all fields");
             }
         });
 
@@ -333,105 +348,6 @@
         p_method.addEventListener('change', () => {
             addLogo()
         })
-
-        
-
-
-
-
-
-
-
-
-
-        // $(document).ready(function () {
-        //     $("formui").submit(function (e) {
-        //         $(".form-group").removeClass("has-error");
-        //         $(".help-block").remove();
-        //         var formData = {
-        //             name: $("#name").val(),
-        //             email: $("#email").val(),
-        //             superheroAlias: $("#superheroAlias").val(),
-        //         };
-
-        //         $.ajax({
-        //         type: "POST",
-        //         url: "process.php",
-        //         data: formData,
-        //         dataType: "json",
-        //         encode: true,
-        //         }).done(function (data) {
-        //             console.log(data);
-        //             if (!data.success) {
-        //                 if (data.errors.name) {
-        //                 $("#name-group").addClass("has-error");
-        //                 $("#name-group").append(
-        //                     '<div class="help-block">' + data.errors.name + "</div>"
-        //                 );
-        //                 }
-
-        //                 if (data.errors.email) {
-        //                 $("#email-group").addClass("has-error");
-        //                 $("#email-group").append(
-        //                     '<div class="help-block">' + data.errors.email + "</div>"
-        //                 );
-        //                 }
-
-        //                 if (data.errors.superheroAlias) {
-        //                 $("#superhero-group").addClass("has-error");
-        //                 $("#superhero-group").append(
-        //                     '<div class="help-block">' + data.errors.superheroAlias + "</div>"
-        //                 );
-        //                 }
-        //             } else {
-        //                 $("form").html(
-        //                 '<div class="alert alert-success">' + data.message + "</div>"
-        //                 );
-        //             }
-        //         })
-        //         .fail(function (data) {
-        //             $("form").html(
-        //             '<div class="alert alert-danger">Could not reach server, please try again later.</div>'
-        //             );
-        //         });
-
-        //         e.preventDefault();
-        //     });
-        // });
-
-        // $("#form").submit(function(e) {
-        //     e.preventDefault(); 
-        //     var form = $(this);
-        //     var actionUrl = form.attr('action');
-        //     $.ajax({
-        //         type: "POST",
-        //         url: actionUrl,
-        //         data: form.serialize(),
-        //         success: function(data)
-        //         {
-        //             alert(data); 
-        //         },
-        //         error: function(error){
-        //             console.log("Error: "error);
-        //         }
-        //     });
-        // });
-
-        // $(function() {
-        //     $('form.my_form').submit(function(event) {
-        //         event.preventDefault(); // Prevent the form from submitting via the browser
-        //         var form = $(this);
-        //         $.ajax({
-        //         type: form.attr('method'),
-        //         url: form.attr('action'),
-        //         data: form.serialize()
-        //         }).done(function(data) {
-        //         // Optionally alert the user of success here...
-        //         }).fail(function(data) {
-        //         // Optionally alert the user of an error here...
-        //         });
-        //     });
-        // });
 
         // ONEPASS GATEWAY
         let runIframe = () => {

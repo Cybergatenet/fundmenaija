@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php $active = "";
-$title = "Online Banking";
+$title = "Fund Raising";
 include "header.php" ?>
 
 
@@ -15,7 +15,7 @@ include "header.php" ?>
       <div class="d-flex justify-content-between align-items-center">
         <ol>
           <li><a href="../">Home</a></li>
-          <li>Online Banking</li>
+          <li>Fund Raising</li>
         </ol>
       </div>
 
@@ -24,9 +24,9 @@ include "header.php" ?>
 
   <section class="inner-page">
     <div class="container">
-      <h1>Online Banking</h1>
+      <h1>Fund Raising</h1>
       <p>
-        Our bank allows you the 24/7 online banking experience.<br> You can access your bank account from anywhere in the<br> world with help of internet service, without taking a<br>
+        Our bank allows you the 24/7 Fund Raising experience.<br> You can access your bank account from anywhere in the<br> world with help of internet service, without taking a<br>
         visit to a physical branch.
       </p>
       <p>
