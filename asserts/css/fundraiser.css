@@ -1,0 +1,45 @@
+:root{
+    --Cyan: #92989a;
+}
+
+.Fundraiser {
+    border-radius: 8px;
+}
+
+.Fundraiser .fundraiser-img { 
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.Fundraiser .fundraiser-img img{ 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50px;
+}
+
+.Fundraiser .address {
+    color: var(--Cyan);
+}
+
+.Fundraiser .event-img {
+    width: 300px;
+    max-width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+.Fundraiser .event-img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 506px) {
+    .Fundraiser .event-img{
+        max-height: 150px;
+    }
+}

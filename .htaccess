@@ -1,0 +1,70 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    #Removes access to the system folder by users.
+    #Additionally this will allow you to create a System.php controller,
+    #previously this would not have been possible.
+    #'system' can be replaced if you have renamed your system folder.
+    #RewriteCond %{REQUEST_URI} ^system.*
+    #RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+    #When your application folder isn't in the system folder
+    #This snippet prevents user access to the application folder
+    #Submitted by: Cybergate
+    #Rename 'application' to your applications folder name.
+    # RewriteCond %{REQUEST_URI} ^fundmena.*
+    # RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+    #Checks to see if the user is attempting to access a valid file,
+    #such as an image or css document, if this isn't true it sends the
+    #request to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+    # RewriteCond %{HTTP_HOST} ^fundmenaija\.com [NC]
+    # RewriteCond %{SERVER_PORT} 80
+    # RewriteRule ^(.*)$ https://www.fundmenaija.com/$1 [R,L]
+
+    #remove php file extension-e.g. https://example.com/file.php will become https://example.com/file 
+    # RewriteCond %{REQUEST_FILENAME} !-d
+    # RewriteCond %{REQUEST_FILENAME}\.php -f
+    # RewriteRule ^(.*)$ $1.php [NC,L] 
+
+    #DirectorySlash Off
+    #RewriteCond %{REQUEST_FILENAME}.php -f
+    #RewriteRule ^(.*)$ $1.php
+    
+    # RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js)$
+    # RewriteRule ^(.*)$ /index.php?/$1 [QSA,L]
+
+    #RewriteRule ^(.+)\.php$ /$1 [R,L]
+    #RewriteCond %{REQUEST_FILENAME}.php -f
+    #RewriteRule ^(.*?)/?$ /$1.php [NC,END]
+
+    #RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+    #RewriteRule ^(.*) - [E=BASE:%1]
+
+    #RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    #RewriteRule ^app\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
+
+    #RewriteCond %{REQUEST_FILENAME} -f
+    #RewriteRule .? - [L]
+
+    #RewriteRule .? %{ENV:BASE}/app.php [L]
+
+    # If we don't have mod_rewrite installed, all 404's
+    # can be sent to index.php, and everything works as normal.
+    # but I prefer to have my own custom 404 error page
+    # Submitted by: Cybergate
+
+    # DirectoryIndex index.php
+
+    # ErrorDocument 400 https://fundmenaija.com/auth/error.php
+    # ErrorDocument 401 https://fundmenaija.com/auth/error.php
+    # ErrorDocument 403 https://fundmenaija.com/auth/error.php
+    # ErrorDocument 404 https://fundmenaija.com/auth/error.php
+    # ErrorDocument 500 https://fundmenaija.com/auth/error.php
+    # ErrorDocument 503 https://fundmenaija.com/auth/error.php
+</IfModule>

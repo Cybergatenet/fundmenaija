@@ -1,0 +1,104 @@
+#1 add meta-tags for keywords and description
+---#2 PHPMailer not working
+#3 session login / logout (ie when logged in, link should say log out)
+#4 search box | filter boxes
+---#5  2F Auth CSS is broken
+---#6 contact us page is broken
+---#7 Ads boxes that I talked about
+---#8 Ads of fundraisers wallet been shown to visitors
+---#9 But the pictures of projects they are raising funds for
+---#10 And every fundraiser must put pictures (two) of their projects (create form to recieve this pictures)
+---#11 Creating our own wallet as fundraiser that people will donate to when they come to create a fundraiser wallet
+---#12 Remove loan from dashboard
+---#13 The go to their dashboard and request then wait for 24 hours to get approval which we will authorize our accounts to send to the account they input
+#14 And every wallet should have donations and should be visible based on the key word || Hot link
+---#15 Yes every part of the site should have donations
+#16 Every donation gets a charges of 7.5%
+#17 Withdrawal by the fundraisers gets a charges of 8.5%
+---#18 We will just see all fund value on the admin while the fund is in the account
+---#19 Every wallet will show how much donations they have gotten
+---#20 Every one should have account and also leave the option of donating just by putting your card and clicking donate on the wallet you are donating to
+---#21 Every one can have account and donate while some can receive donations
+---#22 So all a donor does is to click donate and input there card to donate
+#23 And there also donations from regular donors
+---#24 Yes if Admin see the donations from a fundraiser we will approve
+---#25 Social media link
+---#26 Then it takes you to donate to prove you are not a robot and to approve your wallet
+---#27 All government means that you have you chose one and upload
+---#28 No payment Link yet
+---#29 Sign in is this loading for 5-7mins video
+---#30 From the contact page I clicked sign up then I get that
+---#31 Sign in is loading for minutes now
+---#32 The sign up just showed open and please remove 2nd, 3rd and 4th step. Just only add means of identification not just NiN please
+---#33 About Page with repeat all over
+---#34 This is what another system is showing me on sign up page
+---#35 Please visit: https://nigeria.kawey-reku.com/
+------Good morning check this site and see if you can replicate it with everything it will be needing to function well as a crowd funding market place
+---#36 Our Instagram
+---#37 On the home page and also ad portions for more reach just for interested fundraisers to get noticed
+---#38 And there should be top fundraisers,
+---#39 And the donations are allowed to do recurrent, people can either do one time donations, weekly or monthly (API)
+---#40 So everyone one that comes on to create a fundraiser account must be made to donate to the available fundraisers before their account will be approved
+---#41 Make it 2 steps but use the simple for items just any government ID card
+---#42 So what payment systems will you be using you know it has 3phases the admin, the donors part and the fundraisers part which we approve
+---#43 We will also do advert on site for more donation and reach for people who are ready to use it
+---#44 https://www.instagram.com/invites/contact/?i=piedy677etuh&utm_content=66n7bqr
+---#45 Tesing API for card payment: https://docs.ourpass.co/quick-start-guide/test-cards
+NEW_ISSUES
+---#46  Read more/Read less button...controls all (SOL: foreach)
+---#47  Repeatation in About us page
+---#48  Username of the Fund Raiser is not showing on the payment API
+---#49  Contact form UI-validation using JS
+---#50  reCAPTCHA v2 (Verify NOT a Robot)
+#51  payment methods (Onepass && Paystack) #Error:: https://docs.ourpass.co/quick-start-guide/errors
+---#52  Icons of payment gateway
+---#53  Fetch all users on the ADMIN dashboard (Redo)
+---#54  Donate page cards too big and pagenation is needed
+#55 ALTER TABLE `_issues` CHANGE `issue_time` `issue_time` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT CURRENT_TIMESTAMP;
+---#56 Edit Email templete
+#57 Send Email to the 3 parties on payment from paystack (can only send two then redirect to success page)
+#58 clean up the console
+---#59 Hamburger Menu
+-#60 Forgot password and Recover Password pages
+
+
+
+ADVANCE FEATURES
+#000 icon of fund Raiser and <title>:hover display their target and/or note(description)
+#001 Hot-link to Share to people for donations
+#002 (Add) => Testimonies from people that compoleted their Fund target
+#003 https://phprouter.com/ (routing custom pages)
+
+
+Reminder: 
+$mail->SMTPSecure = PHPMAILER::ENCRYPTION_SMTPS;
+$mail->Port = 465;
+
+
+
+
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://user-api2-staging.ourpass.co/v1/api/subaccounts/375/transactions?page=1&limit=10');
+$request->setMethod(HTTP_Request2::METHOD_GET);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'apiKey' => '{{apiKey}}'
+));
+$request->setBody('');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}

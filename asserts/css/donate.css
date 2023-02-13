@@ -1,0 +1,43 @@
+:root{
+    
+    --Light-Grayish-Cyan: hsl(180, 52%, 96%);
+    /* --Light-Grayish-Cyan : hsl(180, 31%, 95%); */
+    --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
+    --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
+
+    --Font-size: 15px;
+
+}
+
+/* 
+body{
+    background: #f5f4f9;
+} */
+
+body{
+    background: var(--Light-Grayish-Cyan);
+} 
+
+/* .Donation .container{
+    padding-top: 15em;
+} */
+
+.light-cyan-color{
+    color: #63baba;
+}
+
+.fa-search:hover{
+    cursor: pointer;
+    background: var( --Very-Dark-Grayish-Cyan) !important;
+}
+
+.hover:hover {
+    cursor: pointer;
+    color: var( --Very-Dark-Grayish-Cyan);
+}
+
+
+nav{
+    border-radius: 5px;
+    margin-top: 5em;
+}
