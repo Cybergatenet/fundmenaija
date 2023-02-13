@@ -14,30 +14,52 @@ if (isset($_POST['CAccountNo'])) {
         while ($row = mysqli_fetch_assoc($result)) {
             $Fname = $row['C_First_Name'];
             $Lname = $row['C_Last_Name'];
+<<<<<<< HEAD
             // $Faname = $row['C_Father_Name'];
             // $Maname = $row['C_Mother_Name'];
             // $Bdate = $row['C_Birth_Date'];
             // $AdharNo = $row['C_Adhar_No'];
+=======
+            $Faname = $row['C_Father_Name'];
+            $Maname = $row['C_Mother_Name'];
+            $Bdate = $row['C_Birth_Date'];
+            $AdharNo = $row['C_Adhar_No'];
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
             $PanNo = $row['C_Pan_No'];
             $MobileNo = $row['C_Mobile_No'];
             $Email = $row['C_Email'];
             $Pincode = $row['C_Pincode'];
+<<<<<<< HEAD
             // $AdharDoc = $row['C_Adhar_Doc'];
+=======
+            $AdharDoc = $row['C_Adhar_Doc'];
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
             $PanDoc = $row['C_Pan_Doc'];
         }
 
         $data = array(
             'Fname' => $Fname,
             'Lname' => $Lname,
+<<<<<<< HEAD
             // 'Faname' => $Faname,
             // 'Maname' => $Maname,
             // 'Bdate' => $Bdate,
             // 'AdharNo' => $AdharNo,
+=======
+            'Faname' => $Faname,
+            'Maname' => $Maname,
+            'Bdate' => $Bdate,
+            'AdharNo' => $AdharNo,
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
             'PanNo' => $PanNo,
             'MobileNo' => $MobileNo,
             'Email' => $Email,
             'Pincode' => $Pincode,
+<<<<<<< HEAD
             // 'AdharDoc' => $AdharDoc,
+=======
+            'AdharDoc' => $AdharDoc,
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
             'PanDoc' => $PanDoc
         );
 

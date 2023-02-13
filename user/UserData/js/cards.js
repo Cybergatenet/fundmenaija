@@ -28,7 +28,11 @@ $(document).ready(function () {
                         position: 'center',
                         icon: 'error',
                         title: 'Oops...',
+<<<<<<< HEAD
                         text: 'Something went wrong! Please Contact @FundMeNaija',
+=======
+                        text: 'Something went wrong! Please Call to your bank',
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                         timer: 1500
                     })
                 }

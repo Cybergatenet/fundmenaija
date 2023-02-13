@@ -1,7 +1,10 @@
 <?php
     // Headers for the API
     header("Access-Control-Allow-Origin: *");
+<<<<<<< HEAD
     header("Content-Type: application/json; charset=UTF-8");
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
     // header("Access-Control-Allow-Origin: http://www.fundmenaija.com");
 

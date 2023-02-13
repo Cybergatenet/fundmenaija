@@ -61,8 +61,11 @@
             <a href="">contact@fundmenaija.com</a>
         </div>
     </section>
+<<<<<<< HEAD
     <!-- Contact us Bot Chat -->
     <?php include_once('../inc/support.php'); ?>
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     <footer class="py-5">
         <div class=" text-center">
             <p class="m-0">&copy; Paystack Inc 2022</p>

@@ -3,9 +3,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+<<<<<<< HEAD
 require './phpmailer/PHPMailer/src/Exception.php';
 require './phpmailer/PHPMailer/src/PHPMailer.php';
 require './phpmailer/PHPMailer/src/SMTP.php';
+=======
+require '../mail/phpmailer/PHPMailer/src/Exception.php';
+require '../mail/phpmailer/PHPMailer/src/PHPMailer.php';
+require '../mail/phpmailer/PHPMailer/src/SMTP.php';
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
 include_once('../config.php');
 
@@ -15,12 +21,21 @@ function sendMessage($customerMail, $name)
 
     try {
         //Server settings
+<<<<<<< HEAD
         $mail->SMTPDebug = 0;                  
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = SMTP_HOST;                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = SENDER;                     //SMTP username
         $mail->Password   = PWD;                               //SMTP password
+=======
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = EMAIL;                     //SMTP username
+        $mail->Password   = PASSWORD;                               //SMTP password
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 

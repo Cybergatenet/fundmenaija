@@ -275,7 +275,12 @@
         class="back-to-top nav-link rounded-circle d-flex align-items-center justify-content-center h3" 
         title="Back-To-Top"><i class="fa fa-angle-up"></i>
     </a>
+<<<<<<< HEAD
 
+=======
+           
+    
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     <!---------------------- Footer template ---------------------->
     <footer  style="background: #1e1e26; display: flex; justify-content: center">
         <div class="container px-4 d-lg-flex justify-content-between align-items-baseline text-white">

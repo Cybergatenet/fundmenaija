@@ -4,7 +4,11 @@
 // paymentForm.addEventListener("submit", payWithPaystack, false);
 function payWithPaystack() {
     // e.preventDefault();
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     let handler = PaystackPop.setup({
         key: 'pk_live_4f0d9358be6a7d2d6eb726920a093e9b4cd3c7c4', 
         email: document.getElementById("email").value,

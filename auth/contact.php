@@ -8,14 +8,21 @@ require '../mail/phpmailer/PHPMailer/src/Exception.php';
 require '../mail/phpmailer/PHPMailer/src/PHPMailer.php';
 require '../mail/phpmailer/PHPMailer/src/SMTP.php';
 
+<<<<<<< HEAD
 
+=======
+session_start();
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 require '../vendor/autoload.php';
 include_once('../config.php');
 
 $errMsg = '';
 $errMsgClass = '';
 $name = $company = $email = $phone = $message = '';
+<<<<<<< HEAD
 session_start();
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
 if(isset($_POST['contact'])){
     // echo "submitted";
@@ -47,6 +54,7 @@ if(isset($_POST['contact'])){
             try {
                 //Server settings
                 $mail->SMTPDebug = 0;
+<<<<<<< HEAD
                 // * Options:
                 // * @see SMTP::DEBUG_OFF: No output
                 // * @see SMTP::DEBUG_CLIENT: Client messages
@@ -59,20 +67,34 @@ if(isset($_POST['contact'])){
                 $mail->Username   = SENDER;
                 $mail->Password   = PWD;          
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+=======
+                $mail->isSMTP();                      
+                $mail->Host       = 'ssl://smtp.gmail.com';
+                $mail->SMTPAuth   = true;                  
+                $mail->Username   = EMAIL;
+                $mail->Password   = PASSWORD;          
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                 // $mail->Port       = 587;                        
                 $mail->Port       = 465;                           
             
                 //Recipients
+<<<<<<< HEAD
                 $mail->setFrom(EMAIL, 'FundMeNaija Contact');
                 $mail->addAddress(SENDER, 'Cybergate');
                 $mail->addCC(_SENDER_);
                              
+=======
+                $mail->setFrom(SENDER, 'User Contact');
+                // $mail->addAddress(, 'FundMeNaija contact');               
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                 $mail->addReplyTo(SENDER, 'Sender');
             
                 // Content
                 $mail->isHTML(true);        
                 $mail->Subject = $title;
                 $mail->Body = $body;
+<<<<<<< HEAD
                 $mail->AltBody = $body;
                     
                 $mail->send();
@@ -98,6 +120,15 @@ if(isset($_POST['contact'])){
 
                 $name = $company = $email = $phone = $message = '';
                 // header('location: ../index.php');
+=======
+                    
+                $mail->send();
+
+                $errMsg = "Thank you ".$name . " for partnering with us."."\r\n"." Your Request is being considered and we will get back to you as soon as possible";
+                $errMsgClass = "alert-success";
+                $name = $company = $email = $phone = $message = '';
+                header('location: ../index.php');
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
             } catch (Exception $e) {
                 $errMsg = "Your email was not successful. Try again later";
                 $errMsgClass = "alert-danger";
@@ -121,8 +152,13 @@ if(isset($_POST['contact'])){
       content="FundMeNaija website"
     />
       <!-- Favicons -->
+<<<<<<< HEAD
     <link href="../assets/img/favicon-32x32.png" rel="icon">
     <link href="../assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
+=======
+    <link href="./assets/img/favicon-32x32.png" rel="icon">
+    <link href="./assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
     <title>FundMeNaija | Contact</title>
 
@@ -232,9 +268,14 @@ if(isset($_POST['contact'])){
             </div>
             <div class="contact">
                 <!-- <h3>Email Us</h3> -->
+<<<<<<< HEAD
                 <!-- <div class="alert alert-danger">Your Message has been sent</div> -->
                 <form id="contactForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <!-- <form id="contactForm" action="<?php echo FORMSUBMIT; ?>" method="POST"> -->
+=======
+                <div class="alert alert-danger">Your Message has been sent</div>
+                <form id="contactForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                         <!-- Error Msg -->
                 <div class="alert <?php echo $errMsgClass; ?>"><?php echo $errMsg; ?></div>
 
@@ -266,8 +307,12 @@ if(isset($_POST['contact'])){
         </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Contact us Bot Chat -->
     <?php include_once('../inc/support.php'); ?>
+=======
+
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     <!---------------------- Footer template ---------------------->
     
     <footer  style="background: #1e1e26; display: flex; justify-content: center">

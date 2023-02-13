@@ -129,8 +129,11 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     <!-- Contact us Bot Chat -->
     <?php include_once('../inc/support.php'); ?>
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
     <!---------------------- Footer template ---------------------->
     <footer  style="background: #1e1e26; display: flex; justify-content: center">

@@ -28,9 +28,15 @@
     # RewriteRule ^(.*)$ https://www.fundmenaija.com/$1 [R,L]
 
     #remove php file extension-e.g. https://example.com/file.php will become https://example.com/file 
+<<<<<<< HEAD
     # RewriteCond %{REQUEST_FILENAME} !-d
     # RewriteCond %{REQUEST_FILENAME}\.php -f
     # RewriteRule ^(.*)$ $1.php [NC,L] 
+=======
+    #RewriteCond %{REQUEST_FILENAME} !-d
+    #RewriteCond %{REQUEST_FILENAME}\.php -f
+   # RewriteRule ^(.*)$ $1.php [NC,L] 
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
     #DirectorySlash Off
     #RewriteCond %{REQUEST_FILENAME}.php -f

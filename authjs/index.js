@@ -18,18 +18,27 @@ window.addEventListener('scroll', () => {
     faBars.classList.add('scrollColor')
     faTimes.classList.add('scrollColor')
     singleElementSelector('header').classList.add('scroll')
+<<<<<<< HEAD
     // change_link_color(links)
     links.forEach(link => link.classList.add('scrollColor'))
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     
   }else{
     logo.classList.remove('scrollColor')
     faBars.classList.remove('scrollColor')
     faTimes.classList.remove('scrollColor')
     singleElementSelector('header').classList.remove('scroll')
+<<<<<<< HEAD
     // change_link_color(links)
     links.forEach(link => link.classList.remove('scrollColor'))
   }
       
+=======
+  }
+      
+  change_link_color(links)
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 })
 
 

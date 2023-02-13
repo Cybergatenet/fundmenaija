@@ -9,6 +9,10 @@ if (!isset($_SESSION['username'])) {
 $username = $_SESSION['username'];
 $AccountNo = $_SESSION['AccountNo'];
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 ?>
 
 <head>
@@ -89,6 +93,7 @@ $AccountNo = $_SESSION['AccountNo'];
                                 </div>
                             </div>
                             <div class="card-body">
+<<<<<<< HEAD
                                 <h1 class="text-center mb-4 text-success">Make A Deposit To complete Your Request</h1>
                                 <p class="card-text pl-2 pr-2">Dear sir/madam, </p>
                                 <p class="card-text pl-2 pr-2"> &emsp; 
@@ -127,6 +132,17 @@ $AccountNo = $_SESSION['AccountNo'];
                 <p class="card-text mb-4 pl-2 pr-2"><?php echo APP_NAME ?></p>
                 <a href="./Dashboard.php" class="btn btn-success float-right">OK</a>
             </div> -->
+=======
+                                <h1 class="text-center mb-4 text-success">Your Application Sent Successfully</h1>
+                                <p class="card-text pl-2 pr-2">Dear sir/madam, </p>
+                                <p class="card-text pl-2 pr-2"> &emsp; You Have Successfully send your request Application, Your request verificaton is in progress. This Process usually take less than 24hours. <a hraf="mailto: contact@fundmenaija.com">Contact Us</a>, if you experience any difficulties. </p>
+                                <p class="card-text pl-2 pr-2">Thank You, </p>
+                                <p class="card-text mb-4 pl-2 pr-2"><?php echo APP_NAME ?></p>
+                                <a href="./Dashboard.php" class="btn btn-success float-right">OK</a>
+
+
+                            </div>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                         </div>
                     </div>
                 </div>
@@ -138,6 +154,10 @@ $AccountNo = $_SESSION['AccountNo'];
                         <div class="card">
                             <div class="d-flex justify-content-center">
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                                 <div class="noProfile" id="ProfileTag">
                                     <h2 class="nameTag" id="NameTag"></h2>
                                 </div>
@@ -227,7 +247,11 @@ $AccountNo = $_SESSION['AccountNo'];
                                         <p>Support Ticket</p>
                                         <p>Name</p>
                                         <p>Amount</p>
+<<<<<<< HEAD
                                         <p>Fund Raise Date</p>
+=======
+                                        <p>Issued Date</p>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                                         <p>Closing Date</p>
                                         <p>Fund Status</p>
                                         <p>Verification Status</p>
@@ -308,11 +332,19 @@ $AccountNo = $_SESSION['AccountNo'];
     <?php include "footer.php" ?>
     <!-- Wraper Ends Here -->
 
+<<<<<<< HEAD
     </div>
 
     <!-- Optional JavaScript -->
     <script src="../../authjs/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+=======
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -345,6 +377,7 @@ $AccountNo = $_SESSION['AccountNo'];
         });
     </script>
 
+<<<<<<< HEAD
     <!-- Payment Method -->
     <script>
         form.addEventListener("submit", e => {
@@ -361,12 +394,17 @@ $AccountNo = $_SESSION['AccountNo'];
     </script>
     <!-- End Payment -->
 
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     <script>
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
     </script>
+<<<<<<< HEAD
     <script src="../../authjs/pay.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script> 
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 </body>
 </html>

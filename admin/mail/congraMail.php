@@ -8,6 +8,7 @@ function sendMessage($customerMail, $name)
     require 'PHPMailerAutoload.php';
     require 'class.smtp.php';
     $mail  = new PHPMailer;
+<<<<<<< HEAD
     $mail->SMTPDebug = 0;
     $mail->isSMTP();
     $mail->Host = SMTP_HOST;
@@ -17,6 +18,16 @@ function sendMessage($customerMail, $name)
 
     $mail->Username = SENDER;
     $mail->Password = PWD;
+=======
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'tls';
+
+    $mail->Username = EMAIL;
+    $mail->Password = PASSWORD;
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
     $content = file_get_contents('../mail/congraTemp.php');
     $mail->setFrom(EMAIL, APP_NAME);

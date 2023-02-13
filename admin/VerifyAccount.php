@@ -332,11 +332,25 @@ GROUP BY
                             <i class="flaticon-map"></i><i class="bx bx-log-out ico"></i> Logout
                         </a>
                     </li>
+<<<<<<< HEAD
                 </ul>
             </div>
         </nav>
         <!-- /#sidebar-wrapper -->
 
+=======
+
+                </ul>
+
+
+            </div>
+
+
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
@@ -549,23 +563,38 @@ GROUP BY
                             <tr>
                                 <th class="light">Last Name</th>
                                 <td class="light" id="Lname"></td>
+<<<<<<< HEAD
                             </tr>
                             <!-- <tr>
+=======
+
+                            </tr>
+                            <tr>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                                 <th class="light">Father Name</th>
                                 <td class="light" id="Faname"></td>
                             </tr>
                             <tr>
                                 <th class="light">Mother Name</th>
                                 <td class="light" id="Maname"></td>
+<<<<<<< HEAD
                             </tr> -->
                             <!-- <tr>
+=======
+                            </tr>
+                            <tr>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                                 <th class="light">Birth Date</th>
                                 <td class="light" id="Bdate"></td>
                             </tr>
                             <tr>
                                 <th class="light">Adhar No</th>
                                 <td class="light" id="AdharNo"></td>
+<<<<<<< HEAD
                             </tr> -->
+=======
+                            </tr>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                             <!-- <tr>
                                 <th class="light">Pan No</th>
                                 <td class="light" id="PanNo"></td>
@@ -589,8 +618,15 @@ GROUP BY
                     <h6 style="margin-bottom: 30px;margin-top: 30px;border-bottom: 1px solid;display: table;">KYC Documents Uploaded: </h6>
 
 
+<<<<<<< HEAD
                     <!-- Trigger the Modal -->
                     <!-- <img id="AdharImg" class="kycImg" alt="Adhar Card" style="width:100%;max-width:300px"> -->
+=======
+
+
+                    <!-- Trigger the Modal -->
+                    <img id="AdharImg" class="kycImg" alt="Adhar Card" style="width:100%;max-width:300px">
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                     <img id="PanImg" class="kycImg" alt="Pan Card" style="width:100%;max-width:300px;margin-left: 20%;">
 
                     <!-- The Modal -->
@@ -712,9 +748,15 @@ GROUP BY
     </div>
 
     <script>
+<<<<<<< HEAD
         // $(window).on('load', function() {
         //     $('#purchaseCode').modal('show');
         // });
+=======
+        $(window).on('load', function() {
+            $('#purchaseCode').modal('show');
+        });
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     </script>
 
 </body>

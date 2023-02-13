@@ -2,7 +2,10 @@
     session_start();
     // Headers for the API
     header("Access-Control-Allow-Origin: *");
+<<<<<<< HEAD
     // header("Content-Type: application/json; charset=UTF-8");
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
     // header("Access-Control-Allow-Origin: http://www.fundmenaija.com");
 
@@ -190,7 +193,11 @@
                         </div>
                     </ul>
 
+<<<<<<< HEAD
 <!-- ----------------- Hamburger menu ----------------- -->
+=======
+                     <!-- ----------------- Hamburger menu ----------------- -->
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                     <div class='hambuger' onClick="hamburger()">
                         <i class='menuIcon fa fa-bars text-dark fa-2x'></i>
                         <i class='menuIcon fa fa-times text-dark fa-2x hideMenu'></i>
@@ -299,9 +306,12 @@
     </footer>
     </section>
 
+<<<<<<< HEAD
     <!-- Contact us Bot Chat -->
     <?php include_once('../inc/support.php'); ?>
 
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     
     <script src="../authjs/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>

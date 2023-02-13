@@ -5,8 +5,11 @@ session_start();
 // var_dump($_SESSION);
 include "connection.php";
 include '../mail/mail_config.php';
+<<<<<<< HEAD
 include '../email.php';
 // include_once('../config.php');
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
 // Check to see if User is Logged
 if (isset($_SESSION['username'])) {
@@ -197,11 +200,15 @@ if (isset($_POST['submit'])) {
         if ($ConfirmPass != $Password) {
             $ConfirmPassError = "Please Enter same Password";
         } else {
+<<<<<<< HEAD
 // Login Handler   #########################################
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
             $ConfirmPassError = false;
             // unset($_SESSION['otp']);
             $_SESSION['twostep'] = $Account_Number;
             // redirect to login instead
+<<<<<<< HEAD
             $_SESSION['username'] = $Account_Number;
             $_SESSION['verifyCode'] = $Account_Number;
             // $_SESSION['id'] = $row['ID'];
@@ -213,6 +220,11 @@ if (isset($_POST['submit'])) {
 
             // header('Location: ../user/twostepsetup.php');
 // Login Handler    ###########################################
+=======
+            header('Location: ../user/login.php');
+
+            // header('Location: ../user/twostepsetup.php');
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
         }
     } else {
         $ConfirmPassError = "Please Confirm Password";
@@ -239,7 +251,12 @@ if (isset($_POST['submit'])) {
     //Print out our random hex color.
     // echo $hex;
 
+<<<<<<< HEAD
     // ---------------------------- SSN Document Upload Section----------------------------
+=======
+    // ----------------------------------------- SSN Document Upload Section -----------------------------------------
+
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
     // Storing Form values in variable
 
@@ -329,6 +346,7 @@ if (isset($_POST['submit'])) {
                             mysqli_query($conn, $login_query) or die(mysqli_error($conn));
                             mysqli_query($conn, $account_query) or die(mysqli_error($conn));
 // Sending Email
+<<<<<<< HEAD
 // ########### Alternative Email
 require_once('../auth/auth_mail.php');
 auth_mail($Email, $_SESSION['otp'], $First_Name);
@@ -341,6 +359,12 @@ auth_mail($Email, $_SESSION['otp'], $First_Name);
                             // return;
                             // Using php in-built Mail Func
                             sendOTPMail($Email, $_SESSION['otp']);
+=======
+                            require '../mail/congraMail.php';
+                            sendMessage($Email, $First_Name);
+                            // require '../mail/mail_config.php';
+                            // sendOtp($Email, '123456' ,$First_Name);
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                         } catch (Exception $e) {
                             // echo "Could NOT Process Image. Try Again";
                             $Adhar_Up_error = "Could NOT Process Image. Try Again";
@@ -374,7 +398,11 @@ auth_mail($Email, $_SESSION['otp'], $First_Name);
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>FundMeNaija | Create Account</title>
+=======
+    <title>Create Account</title>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     <!-- Favicons -->
     <link href="../assets/img/favicon-32x32.png" rel="icon">
     <link href="../assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
@@ -508,20 +536,29 @@ auth_mail($Email, $_SESSION['otp'], $First_Name);
 
         </div>
 
+<<<<<<< HEAD
             <!-- <div class="tab">
+=======
+            <div class="tab">
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                 <h3 class="mb-3 stepHead">Step 2/2</h3>
                 <p class="SubAction">Validate Email Account</p>
 
                 <div class="col-md mb-3">
                     <div class="col-md">
                         <div class="alert alert-success" role="alert">
+<<<<<<< HEAD
                             Verification Code Sent To Your email, Kindly check your email
+=======
+                            Verification Code Send On Your email, Please check your email
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                         </div>
                         <div class="form-floating OtpMobile">
                             <input 
                                 type="tel" class="form-control" 
                                 name="Otp" id="Otp" placeholder="Enter 6 Digit OTP" 
                                 pattern="[0-9]{6}"
+<<<<<<< HEAD
                                 value="<?php echo isset($_SESSION['otp']) ? $_SESSION['otp'] : 'OTP Failed'; ?>"
                             >
                             <p><a href="#" class="nav-link h6" onclick="nextPrev(1)">Verify Later? Skip Verification</a></p>
@@ -529,11 +566,20 @@ auth_mail($Email, $_SESSION['otp'], $First_Name);
                             <label for="floatingInputGrid">Enter 6 Digit OTP</label>
                             <span style="color: red;" id="OtpError"></span>                          
                        
+=======
+                            >
+                            <label for="floatingInputGrid">Enter 6 Digit OTP</label>
+                            <span style="color: red;" id="OtpError"></span>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                         </div>
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         </div> -->
+=======
+        </div>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
         <!-- Tab 4 -->
 
@@ -594,9 +640,12 @@ auth_mail($Email, $_SESSION['otp'], $First_Name);
             <span class="step"></span> -->
         </div>
     </form>
+<<<<<<< HEAD
 
     <!-- Contact us Bot Chat -->
     <?php include_once('../inc/support.php'); ?>
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
    <!-- preloader -->
     <div id="preloader"></div>
 

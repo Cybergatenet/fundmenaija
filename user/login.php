@@ -10,6 +10,10 @@ include "../config.php";
 // echo "super".$row['ID'].random_int(1,9);
 // return;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 // echo htmlspecialchars($_SERVER['PHP_SELF']);
 // return;
 if (isset($_SESSION['username'])) {
@@ -92,12 +96,19 @@ if (isset($_SESSION['username'])) {
                     } else if ($state == 1) {
 
                         if ($status == "Super") {
+<<<<<<< HEAD
                             // session_start();
                             // $int = random_int(1,9);
                             $int = 8932437;
 
                             $_SESSION['username'] = $row['Username'];
                             $_SESSION['admin'] = "super".$row['ID'].$int;
+=======
+                            session_start();
+
+                            $_SESSION['username'] = $row['Username'];
+                            $_SESSION['admin'] = "super".$row['ID'].random_int(1,9);
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
                             
                             $_SESSION['accountNo'] = $row['AccountNo'];
 
@@ -228,8 +239,11 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </main>
+<<<<<<< HEAD
     <!-- Contact us Bot Chat -->
     <?php include_once('../inc/support.php'); ?>
+=======
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
     
     <div id="preloader"></div>
 

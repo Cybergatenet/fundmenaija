@@ -1,8 +1,12 @@
 <?php
 session_start();
+<<<<<<< HEAD
     // var_dump($_SESSION);
 
     return var_dump($_SESSION['email']);
+=======
+    var_dump($_SESSION);
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 ?>
 
 <?php 
@@ -13,6 +17,11 @@ session_start();
         echo '<li><a class="nav-link scrollto" href="../user/login.php">Login</a></li>';
     }
 
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 ?>
 
 <?php 
@@ -30,6 +39,7 @@ session_start();
         </button>
     </li>';
     }
+<<<<<<< HEAD
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,3 +90,6 @@ session_start();
 </script>
 </body>
 </html>
+=======
+?>
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b

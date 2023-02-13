@@ -15,6 +15,7 @@
 
         try {
             //Server settings
+<<<<<<< HEAD
             $mail->SMTPDebug = 0;
             $mail->isSMTP();
             $mail->Host = GMAIL_HOST;                     //Set the SMTP server to send through
@@ -23,13 +24,27 @@
             $mail->Password = PASSWORD;  
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;//Enable implicit TLS encryption
             $mail->Port       = 465;//TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+=======
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = EMAIL;                     //SMTP username
+            $mail->Password   = PASSWORD;                               //SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
             //Recipients
             $mail->setFrom(EMAIL, 'FundMeNaija');
 
             $mail->addAddress($customerMail, $name);     //Add a recipient
 
+<<<<<<< HEAD
             $mail->addReplyTo(EMAIL, 'FundMeNaija');
+=======
+            $mail->addReplyTo(SENDER, 'FundMeNaija');
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
 
             $content = file_get_contents('../mail/otpMail.php');
             $mail->isHTML(true);
@@ -53,6 +68,7 @@
             $mail->Body = "$content";
 
             // $mail->Body    = 'Use this code to valid your Account <b>in bold!</b>';
+<<<<<<< HEAD
             $mail->AltBody = "$content";
 
             $mail->send();
@@ -71,6 +87,17 @@
             }
             
             // echo 'Message has been sent';
+=======
+            // $mail->AltBody = 'Alternatively, you can click on this link to verify your account';
+
+            $mail->send();
+            echo "
+                <script>
+                    alert('Verification Code Sent To Email');
+                </script>
+            ";
+            echo 'Message has been sent';
+>>>>>>> 1c7ec94f87209fec2ea8e0ad6f1a6a7a991a572b
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
